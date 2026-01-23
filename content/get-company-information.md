@@ -8,7 +8,7 @@ tags:
  - Website
  - API
 visualisation-data: line-companies-per-month
-contact:hello@example.com
+contact: hello@example.com
 ---
 
 Search the Companies House register of UK companies by company name, company number or officer name. Results include the company’s address, type and status, date of incorporation, accounting period, nature of business and previous names. You can also view the filing history, any registered charges and the company’s past and present registered officers. 
