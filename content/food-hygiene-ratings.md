@@ -2,7 +2,8 @@
 title: Food hygiene ratings
 collection: Business and economy
 website: https://ratings.food.gov.uk/
-api: https://ratings.food.gov.uk/open-data
+api: https://api.ratings.food.gov.uk/Help
+dataset: https://ratings.food.gov.uk/open-data
 page-last-updated: 2026-01-23
 tags:
  - Website
