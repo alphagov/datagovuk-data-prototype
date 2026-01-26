@@ -42,7 +42,9 @@ The data in [data/summary-average-house-prices-2025-11.csv](data/summary-average
 
 The data extracted was to match the table produced monthly here:
 
-[https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025](https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025)
+[https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025](https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025) 
 
-We could update monthly by getting the file: https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-[YYYY]-[MM].csv
+I used what seemed to be a stable source rather than extract from the html page above (even though the csv was downloadable) as the url https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/ seems to be the main stable url. In theory we could update monthly by getting the file:
+
+https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-[YYYY]-[MM].csv
 
