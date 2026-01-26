@@ -8,6 +8,6 @@ page-last-updated: 2026-01-23
 tags:
  - Website
  - Dataset
-visualisation-data:
+visualisation-data: summary-average-house-prices-2025-11
 contact:
 ---

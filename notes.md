@@ -27,3 +27,24 @@ This CSV file was filtered for rows where the following are true:
 
 From resulting rows were sorted by date and the last four rows were taken. The script can be found here: [scripts/company_formation.py](scripts/company_formation.py)
 
+***
+
+
+## House prices
+
+
+**Other sources**
+The data is duplicated in many locations so it's not totally clear where would be the best source.
+
+**How data for a graph was collected**
+
+The data in [data/summary-average-house-prices-2025-11.csv](data/summary-average-house-prices-2025-11.csv) was extracted from:
+
+[https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv) 
+
+The data extracted was to match the table produced monthly here:
+
+[https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025](https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025)
+
+We could update monthly by getting the file: https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-[YYYY]-[MM].csv
+
