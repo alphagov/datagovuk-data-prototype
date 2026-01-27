@@ -4,6 +4,7 @@ import truststore
 import ssl
 import json
 import click
+
 from io import StringIO
 from scripts.config import DATA_DIR
 
@@ -13,8 +14,7 @@ def _download_csv(url):
     client = httpx.Client(verify=ctx)
     response = client.get(url)
     return pd.read_csv(StringIO(response.text))
-
-
+    
 def _get_quarter_label(date):
     quarter = (date.month - 1) // 3 + 1
     return f"Q{quarter} {date.year}"
@@ -48,7 +48,7 @@ def _extract_last_four_quarters(df, source):
         "publisher": "Companies House",
         "title": f"Last four quarters to {last_quarter_label}",
         "data": data,
-        "source": source,
+        "source": source
     }
 
 
@@ -66,3 +66,4 @@ def companies_formed_by_quarter(csv_url):
         print(f"Saved to {output_file}")
     else:
         print("No quarterly company formation data found")
+
