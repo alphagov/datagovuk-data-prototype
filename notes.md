@@ -2,6 +2,8 @@
 
 This is a collection of notes, observations about the curated datasets.
 
+
+=
 ## Get company information
 
 Main public data API provides programatic access to much the same information (as data) as the web based end user search pages.

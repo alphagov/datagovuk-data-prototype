@@ -1,0 +1,14 @@
+[project]
+name = "datagovuk-data-prototype"
+version = "0.1.0"
+description = "This repo is a place to experiment with datasets"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.3.1",
+    "httpx>=0.28.1",
+    "pandas>=3.0.0",
+    "python-frontmatter>=1.1.0",
+    "ruff>=0.14.14",
+    "truststore>=0.10.4",
+]
