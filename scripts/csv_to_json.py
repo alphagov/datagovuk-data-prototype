@@ -20,7 +20,7 @@ def to_json(csv_file):
         reader = csv.DictReader(f)
         for row in reader:
             data_dict["data"].append(row)
-    
+
     output = DATA_DIR / f"{file_path.stem}.json"
     with open(output, "w") as f:
         json.dump(data_dict, f, indent=2)

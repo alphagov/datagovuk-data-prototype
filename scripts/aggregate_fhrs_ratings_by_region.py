@@ -22,9 +22,9 @@ def download_fhrs_data(file_path):
     ctx = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     client = httpx.Client(verify=ctx, timeout=300.0)
 
-    with client.stream('GET', FHRS_URL) as response:
+    with client.stream("GET", FHRS_URL) as response:
         response.raise_for_status()
-        with open(file_path, 'wb') as f:
+        with open(file_path, "wb") as f:
             for chunk in response.iter_bytes(chunk_size=8192):
                 f.write(chunk)
 
@@ -37,8 +37,8 @@ def load_region_lookup(lookup_file):
     with open(lookup_file) as f:
         reader = csv.DictReader(f)
         for row in reader:
-            lad_name = row.get('local-authority-name', '')
-            region_name = row.get('region', '')
+            lad_name = row.get("local-authority-name", "")
+            region_name = row.get("region", "")
             if lad_name and region_name:
                 authority_to_region[lad_name] = region_name
 
@@ -51,13 +51,13 @@ def aggregate_ratings(fhrs_file, authority_to_region):
     total_records = 0
     matched_records = 0
 
-    with open(fhrs_file, 'r') as f:
+    with open(fhrs_file, "r") as f:
         reader = csv.DictReader(f)
 
         for row in reader:
             total_records += 1
-            authority_name = row.get('LocalAuthorityName', '')
-            rating_value = row.get('RatingValue', '')
+            authority_name = row.get("LocalAuthorityName", "")
+            rating_value = row.get("RatingValue", "")
 
             if not authority_name or not rating_value:
                 continue
@@ -79,13 +79,14 @@ def aggregate_ratings(fhrs_file, authority_to_region):
     return region_ratings, unmatched_authorities, total_records, matched_records
 
 
-
 def save_to_csv(region_ratings, output_file):
     regions = sorted(region_ratings.keys())
 
-    with open(output_file, 'w', newline='', encoding='utf-8') as f:
+    with open(output_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(['region', '1', '2', '3', '4', '5', 'total-number-of-establishments'])
+        writer.writerow(
+            ["region", "1", "2", "3", "4", "5", "total-number-of-establishments"]
+        )
 
         for region in regions:
             ratings = region_ratings[region]
@@ -97,6 +98,7 @@ def save_to_csv(region_ratings, output_file):
                 row_total += count
             row.append(row_total)
             writer.writerow(row)
+
 
 @click.command()
 def aggregate():
@@ -122,10 +124,10 @@ def aggregate():
 
     if len(unmatched) > 0:
         click.echo(f"There were {len(unmatched)} unmatched local authorities")
-        unmatched_file = data / "fhrs-unmatched-local-authorities.csv"
-        with open(unmatched_file, 'w', newline='', encoding='utf-8') as f:
+        unmatched_file = reference_dir / "fhrs-unmatched-local-authorities.csv"
+        with open(unmatched_file, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
-            writer.writerow(['local-authority-name'])
+            writer.writerow(["local-authority-name"])
             for authority in sorted(unmatched):
                 writer.writerow([authority])
         click.echo(f"Unmatched authorities saved to: {unmatched_file}")

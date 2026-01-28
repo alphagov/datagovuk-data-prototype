@@ -14,7 +14,8 @@ def _download_csv(url):
     client = httpx.Client(verify=ctx)
     response = client.get(url)
     return pd.read_csv(StringIO(response.text))
-    
+
+
 def _get_quarter_label(date):
     quarter = (date.month - 1) // 3 + 1
     return f"Q{quarter} {date.year}"
@@ -37,7 +38,7 @@ def _get_by_attribute(df, attribute, number_of_quarters):
     last_four = df_filtered.tail(number_of_quarters)
 
     last_date = last_four["Date"].iloc[-1]
-    
+
     data = []
     for _, row in last_four.iterrows():
         quarter_label = _get_quarter_label(row["Date"])
@@ -54,7 +55,7 @@ def _extract_last_n_quarters(df, source, number_of_quarters):
         "publisher": "Companies House",
         "title": f"Company incorporations and dissolutions for last {number_of_quarters} quarters to {last_quarter_label}",
         "data": data,
-        "source": source
+        "source": source,
     }
 
 
@@ -73,4 +74,3 @@ def companies_formed_by_quarter(csv_url, number_of_quarters):
         print(f"Saved to {output_file}")
     else:
         print("No quarterly company formation data found")
-
