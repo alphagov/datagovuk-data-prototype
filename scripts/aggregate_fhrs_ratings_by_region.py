@@ -1,12 +1,13 @@
 import csv
+import ssl
+from collections import defaultdict
+from pathlib import Path
+
+import click
 import httpx
 import truststore
-import ssl
-import click
 
-from pathlib import Path
-from collections import defaultdict
-
+from scripts.config import DATA_DIR, REFERENCE_DATA_DIR
 
 FHRS_URL = "https://safhrsprodstorage.blob.core.windows.net/opendatafileblobstorage/FHRS_All_en-GB.csv"
 
@@ -102,10 +103,8 @@ def save_to_csv(region_ratings, output_file):
 
 @click.command()
 def aggregate():
-    data_dir = Path(__file__).parent.parent / "data"
-    reference_dir = data_dir / "reference"
-    fhrs_file = reference_dir / "FHRS_All_en-GB.csv"
-    lookup_file = reference_dir / "fhrs-local-authority-by-region.csv"
+    fhrs_file = REFERENCE_DATA_DIR / "FHRS_All_en-GB.csv"
+    lookup_file = REFERENCE_DATA_DIR / "fhrs-local-authority-by-region.csv"
 
     download_fhrs_data(fhrs_file)
 
@@ -118,13 +117,13 @@ def aggregate():
         fhrs_file, authority_to_region
     )
 
-    output_file = data_dir / "fhrs-ratings-by-region.csv"
+    output_file = DATA_DIR / "fhrs-ratings-by-region.csv"
     save_to_csv(region_ratings, output_file)
     click.echo(f"Results saved to: {output_file}")
 
     if len(unmatched) > 0:
         click.echo(f"There were {len(unmatched)} unmatched local authorities")
-        unmatched_file = reference_dir / "fhrs-unmatched-local-authorities.csv"
+        unmatched_file = REFERENCE_DATA_DIR / "fhrs-unmatched-local-authorities.csv"
         with open(unmatched_file, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["local-authority-name"])
