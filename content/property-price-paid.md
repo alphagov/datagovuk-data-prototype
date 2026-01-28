@@ -4,7 +4,7 @@ collection: Land and property
 website: https://landregistry.data.gov.uk/app/ppd/
 api:
 dataset: https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
-page-last-updated: 2026-01-23
+page-last-updated: "2026-01-23"
 tags:
  - Website
  - Dataset
@@ -14,4 +14,4 @@ contact:
 
 Find property transactions through HM Land Registry by searching on address, type of property or a price or date range. Property types include terraced, detached, semi-detached, flat or maisonette, and other. You can filter properties based on freehold or leasehold, and new build or not new build.
 
-You can also search the UK house price index to find house price trends in the UK, or download quarterly house price data from the Office for National Statistics (ONS). 
+You can also search the UK house price index to find house price trends in the UK, or download quarterly house price data from the Office for National Statistics (ONS).
