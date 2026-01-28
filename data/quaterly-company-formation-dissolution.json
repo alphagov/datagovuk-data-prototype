@@ -1,7 +1,7 @@
 {
   "publisher": "Companies House",
   "title": "Company incorporations and dissolutions for last 8 quarters to Q3 2025",
-  "source": "https://assets.publishing.service.gov.uk/media/6900d17ba6048928d3fc2b20/Incorporated_companies_in_the_UK_July_to_September_2025.csv"
+  "source": "https://assets.publishing.service.gov.uk/media/6900d17ba6048928d3fc2b20/Incorporated_companies_in_the_UK_July_to_September_2025.csv",
   "data": {
     "incorporations": [
       {
@@ -55,5 +55,5 @@
         "Q3 2025": 234373
       }
     ]
-  },
+  }
 }
