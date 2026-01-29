@@ -3,6 +3,7 @@ title: Get company information
 collection: Business and economy
 website: https://find-and-update.company-information.service.gov.uk/
 api: https://developer.company-information.service.gov.uk/
+dataset:
 page-last-updated: "2026-01-22"
 tags:
  - Website

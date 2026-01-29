@@ -1,7 +1,6 @@
 import csv
 import ssl
 from collections import defaultdict
-from pathlib import Path
 
 import click
 import httpx

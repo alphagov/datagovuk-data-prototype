@@ -1,0 +1,127 @@
+{
+  "title": "annual births england and wales 1995 to 2024",
+  "publisher": "Office for National Statistics",
+  "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsinenglandandwalesbirthregistrations",
+  "data": [
+    {
+      "year": "2024",
+      "live-births": "594677"
+    },
+    {
+      "year": "2023",
+      "live-births": "591072"
+    },
+    {
+      "year": "2022",
+      "live-births": "605479"
+    },
+    {
+      "year": "2021",
+      "live-births": "624828"
+    },
+    {
+      "year": "2020",
+      "live-births": "613936"
+    },
+    {
+      "year": "2019",
+      "live-births": "640370"
+    },
+    {
+      "year": "2018",
+      "live-births": "657076"
+    },
+    {
+      "year": "2017",
+      "live-births": "679106"
+    },
+    {
+      "year": "2016",
+      "live-births": "696271"
+    },
+    {
+      "year": "2015",
+      "live-births": "697852"
+    },
+    {
+      "year": "2014",
+      "live-births": "695233"
+    },
+    {
+      "year": "2013",
+      "live-births": "698512"
+    },
+    {
+      "year": "2012",
+      "live-births": "729674"
+    },
+    {
+      "year": "2011",
+      "live-births": "723913"
+    },
+    {
+      "year": "2010",
+      "live-births": "723165"
+    },
+    {
+      "year": "2009",
+      "live-births": "706248"
+    },
+    {
+      "year": "2008",
+      "live-births": "708711"
+    },
+    {
+      "year": "2007",
+      "live-births": "690013"
+    },
+    {
+      "year": "2006",
+      "live-births": "669601"
+    },
+    {
+      "year": "2005",
+      "live-births": "645835"
+    },
+    {
+      "year": "2004",
+      "live-births": "639721"
+    },
+    {
+      "year": "2003",
+      "live-births": "621469"
+    },
+    {
+      "year": "2002",
+      "live-births": "596122"
+    },
+    {
+      "year": "2001",
+      "live-births": "594634"
+    },
+    {
+      "year": "2000",
+      "live-births": "604441"
+    },
+    {
+      "year": "1999",
+      "live-births": "621872"
+    },
+    {
+      "year": "1998",
+      "live-births": "635901"
+    },
+    {
+      "year": "1997",
+      "live-births": "643095"
+    },
+    {
+      "year": "1996",
+      "live-births": "649485"
+    },
+    {
+      "year": "1995",
+      "live-births": "648138"
+    }
+  ]
+}
