@@ -1,33 +1,17 @@
-import pandas as pd
-import httpx
 import ssl
-import truststore
-import click
-
 from io import StringIO
-from scripts.config import DATA_DIR
 
+import click
+import httpx
+import pandas as pd
+import truststore
+
+from scripts.config import DATA_DIR
 
 URL = "https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv"
 OUTPUT_FILE = DATA_DIR / "summary-average-house-prices-2025-11.json"
 
-REGIONS_OF_INTEREST = [
-    "England",
-    "Wales",
-    "Scotland",
-    "Northern Ireland",
-    "North East",
-    "North West",
-    "Yorkshire and The Humber",
-    "East Midlands",
-    "West Midlands",
-    "East of England",
-    "London",
-    "South East",
-    "South West",
-]
-
-SORT_ORDER = [
+REGIONS = [
     "England",
     "Northern Ireland",
     "Scotland",
@@ -58,7 +42,7 @@ def get_house_price_data(url: str) -> pd.DataFrame:
     latest_date = df["Date"].max()
 
     df_latest = df[df["Date"] == latest_date]
-    df_regions = df_latest[df_latest["Region_Name"].isin(REGIONS_OF_INTEREST)]
+    df_regions = df_latest[df_latest["Region_Name"].isin(REGIONS)]
 
     summary = df_regions[
         ["Region_Name", "Average_Price", "Monthly_Change", "Annual_Change"]
@@ -73,7 +57,7 @@ def get_house_price_data(url: str) -> pd.DataFrame:
 
     summary["region"] = pd.Categorical(
         summary["region"],
-        categories=SORT_ORDER,
+        categories=REGIONS,
         ordered=True,
     )
 
