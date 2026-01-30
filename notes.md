@@ -22,7 +22,7 @@ This CSV file was filtered for rows where the following are true:
 
     "Region" == "UK"
     "Corporate body type" == "All companies"
-    "Attribute"  == "Incorporations"
+    "Attribute"  == "Incorporations" || "Dissolutions"
 
 From resulting rows were sorted by date and the last four rows were taken. The script can be found here: [scripts/company_formation.py](scripts/company_formation.py)
 
@@ -47,8 +47,6 @@ https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/
 
 ## Births
 
-We'll use England and Wales only for the moment.
-
 Birth data for England and Wales
 
 [https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations)
@@ -64,3 +62,18 @@ Northern Ireland
 **How data for a graph was collected**
 
 Extracted csv files from downloaded spreadsheets in [data/reference](data/reference/). Spreadsheets were from the sites listed above.
+
+
+## Deaths
+
+## Food hygiene ratings
+
+## Health dashboard
+
+## Planning data
+
+## Price paid data
+
+## Upcoming election data
+
+## Population data
