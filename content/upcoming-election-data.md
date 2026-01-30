@@ -1,5 +1,5 @@
 ---
-title: Election data
+title: Upcoming election data
 collection: Government
 website: https://www.electoralcommission.org.uk/i-am-a/voter/your-election-information
 api: https://api.electoralcommission.org.uk/
