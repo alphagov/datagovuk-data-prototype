@@ -63,4 +63,4 @@ Northern Ireland
 
 **How data for a graph was collected**
 
-Extracted csv files from downloaded spreadsheets in [data/reference/birth_data](data/reference/birth_data). Spreadsheets were from the sites listed above.
+Extracted csv files from downloaded spreadsheets in [data/reference](data/reference/). Spreadsheets were from the sites listed above.
