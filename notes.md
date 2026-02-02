@@ -183,8 +183,14 @@ The CSV dowload of the above linked here: [https://www.ons.gov.uk/peoplepopulati
 
 ## Election results
 
+The page [https://electionresults.parliament.uk/elections](https://electionresults.parliament.uk/elections) has links to election results going back to 2010.
+
 ### Possible visualisation
 
+Sample data: [https://github.com/alphagov/datagovuk-data-prototype/blob/main/data/results-for-the-uk-general-election-on-2024-07-04.json](https://github.com/alphagov/datagovuk-data-prototype/blob/main/data/results-for-the-uk-general-election-on-2024-07-04.json)
+
 ### How data for a graph was collected
+
+The sample data was created by downloading the CSV file for July 2024 election here [https://electionresults.parliament.uk/general-elections/6](https://electionresults.parliament.uk/general-elections/6). It was then converted to JSON.
 
 ***
