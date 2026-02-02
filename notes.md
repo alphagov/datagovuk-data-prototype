@@ -62,7 +62,8 @@ The ONS birth data is available on a couple of urls, but in this case I used thi
 
 ### Possible visualisation
 
-Sample data: [data/total-live-birth-counts-england-and wales-1939-to-2024.json](data/total-live-birth-counts-england-and wales-1939-to-2024.json)
+Sample data:
+[data/total-live-birth-counts-england-and-wales-1939-to-2024.json](data/total-live-birth-counts-england-and-wales-1939-to-2024.json)
 
 ### How data for a graph was collected
 
