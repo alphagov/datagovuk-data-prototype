@@ -32,6 +32,19 @@ From resulting rows were sorted by date and the last four rows were taken. The s
 
 ***
 
+## Get charity information
+
+
+
+### Possible visualisation
+
+
+### How data for a graph was collected
+
+
+***
+
+
 ## Births
 
 Birth data for England and Wales is easily avaiable and most visualisations on ONS site have download links making charts easy to reproduce.
