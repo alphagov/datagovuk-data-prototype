@@ -148,3 +148,18 @@ What appear to be reliable index pages make access to the data straightforward.
 ***
 
 ## Population data
+
+As with births and deaths a number of options available from [https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates)
+
+### Possible visualisation
+
+From the above page there's an in page link to time series data here: [https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates#timeseries](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates#timeseries)
+
+Sample data: [data/united-kingdom-population-mid-year-estimate.json](data/united-kingdom-population-mid-year-estimate.json)
+
+### How data for a graph was collected
+
+The CSV dowload of the above linked here: [https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop) was downloaded and turned into json.
+
+
+
