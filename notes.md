@@ -119,7 +119,7 @@ needed.
 
 The [UKHSA dashboard](https://ukhsa-dashboard.data.gov.uk/) has numerous visualsations all of which are easy to recreate as downloads for each chart available.
 
-### How data for a graph was collected
+### Possible visualisation
 
 Pick something of general interest from site above? We might want to check which (if any) are stable and evergreen, e.g. does the flu cases chart get taken down when flu season over?
 
