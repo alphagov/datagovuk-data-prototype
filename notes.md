@@ -62,8 +62,7 @@ The ONS birth data is available on a couple of urls, but in this case I used thi
 
 ### Possible visualisation
 
-Sample data:
-[data/total-live-birth-counts-england-and-wales-1939-to-2024.json](data/total-live-birth-counts-england-and-wales-1939-to-2024.json)
+Sample data: [data/total-live-birth-counts-england-and-wales-1939-to-2024.json](data/total-live-birth-counts-england-and-wales-1939-to-2024.json)
 
 ### How data for a graph was collected
 
@@ -76,6 +75,18 @@ The csv was then just converted to json.
 ***
 
 ## Deaths
+
+As with births, there are a number of options of data avaible as downloads from ONS. In this case the following url was used: [https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregistrationsummarytables/2024](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregistrationsummarytables/2024)
+
+
+### Possible visualisation
+
+Sample data: [data/deaths-registered-in-england-and-wales-by-sex-1992-to-2024.json](data/deaths-registered-in-england-and-wales-by-sex-1992-to-2024.json)
+
+
+### How data for a graph was collected
+
+The csv data for the table "Deaths registered in England and Wales by sex, 1992 to 2024" on the page above was downloaded and converted to a json file.
 
 ***
 
