@@ -6,6 +6,7 @@ The following content files have not been investigated for visualisation yet as 
 
 - [content/check-mot-history.md](content/check-mot-history.md)
 - [content/upcoming-election-data.md](content/upcoming-election-data.md)
+- [content/weather.md](content/weather.md)
 
 ***
 
