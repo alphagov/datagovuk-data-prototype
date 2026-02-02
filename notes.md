@@ -82,20 +82,23 @@ The csv was then just converted to json.
 
 Good data is available for download here: [https://ratings.food.gov.uk/open-data](https://ratings.food.gov.uk/open-data)
 
-
 ### Possible visualisation
 
 Sample data: [data/fhrs-ratings-by-region.json](data/fhrs-ratings-by-region.json)
 
-There was a suggestion to create a graph or table of ratings by region which could be done by combining a couple of the FSAs downloadable datasets.
+There was a suggestion to create a graph or table of ratings by region which could be done by reworking FSAs downloadable data with a manually created mapping of local authorities
+to regions. See below.
 
 ### How data for a graph was collected
 
-Using the FHRS all region rating csv here: [https://safhrsprodstorage.blob.core.windows.net/opendatafileblobstorage/FHRS_All_en-GB.csv](https://safhrsprodstorage.blob.core.windows.net/opendatafileblobstorage/FHRS_All_en-GB.csv)
+The FHRS all region rating csv here: [https://safhrsprodstorage.blob.core.windows.net/opendatafileblobstorage/FHRS_All_en-GB.csv](https://safhrsprodstorage.blob.core.windows.net/opendatafileblobstorage/FHRS_All_en-GB.csv) was used as a starting point. This file lists rated establishments by local authority.
 
-In order to create a list of ratings by region, given the above file does not record region, only local authority. We had to create a mapping of local authorties to regions matching FSA names [data/reference/fhrs-local-authority-by-region.csv](data/reference/fhrs-local-authority-by-region.csv) - clearly a govt mandated list of organisations (with identifiers) would be a good thing :)
+In order to create a list of ratings by region, given the above file does not record region, we had to create a mapping of local authorties to regions matching FSA names [data/reference/fhrs-local-authority-by-region.csv](data/reference/fhrs-local-authority-by-region.csv).
 
-A sample script to collate the data is here: [scripts/aggregate_fhrs_ratings_by_region.py](scripts/aggregate_fhrs_ratings_by_region.py)
+Clearly a govt mandated list of organisations (with identifiers) would be a good thing.
+
+A sample script to collate the data is here: [scripts/aggregate_fhrs_ratings_by_region.py](scripts/aggregate_fhrs_ratings_by_region.py). It's nothing complicated but worth noting some work
+needed.
 
 
 ***
