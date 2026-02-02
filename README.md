@@ -10,6 +10,8 @@ Depending on what we find out as we go, we may add some scripts to explore ways 
 
 **Note**: Nothing here should be considered production like, but outputs/learnings will inform work intended for production.
 
+**Sample visualisation data here** [data/](data) - and notes regarding sample data here: [notes.md](notes.md)
+
 ## Repository structure
 
 The [content](content) directory contains markdown files used to generate static pages for datasets.
