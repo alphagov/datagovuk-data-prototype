@@ -34,16 +34,21 @@ From resulting rows were sorted by date and the last four rows were taken. The s
 
 ## Get charity information
 
-
+Charity commission has a number of downloadable headline figure datasets here [https://register-of-charities.charitycommission.gov.uk/en/sector-data/sector-overview](https://register-of-charities.charitycommission.gov.uk/en/sector-data/sector-overview)
 
 ### Possible visualisation
 
+Sample data: [data/charity-commission-top-10-charites-by-category.json](data/charity-commission-top-10-charites-by-category.json)
 
 ### How data for a graph was collected
 
+The data for the visualisation data was downloaded here: [https://register-of-charities.charitycommission.gov.uk/en/sector-data/top-10-charities](https://register-of-charities.charitycommission.gov.uk/en/sector-data/top-10-charities) as CSV and then rewritten into a suitable JSON with same data as original file.
+
+A copy of the original csv is here: [data/reference/charity-commission-top-10-charites-by-category.csv](data/reference/charity-commission-top-10-charites-by-category.csv)
+
+Sample script showing how the CSV file was transformed to JSON is here: [/scripts/charities_top_ten.py](/scripts/charities_top_ten.py)
 
 ***
-
 
 ## Births
 
@@ -153,11 +158,6 @@ What appear to be reliable index pages make access to the data straightforward.
  
  This is just an example and a script to do it is here: [scripts/uk_house_prices.py](scripts/uk_house_prices.py). Many other options available.
 
-
-***
-
-## Upcoming election data
-
 ***
 
 ## Population data
@@ -174,5 +174,8 @@ Sample data: [data/united-kingdom-population-mid-year-estimate.json](data/united
 
 The CSV dowload of the above linked here: [https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop) was downloaded and turned into json.
 
+***
 
+## Upcoming election data
 
+***
