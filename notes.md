@@ -117,13 +117,33 @@ needed.
 
 ## Health dashboard
 
+The [UKHSA dashboard](https://ukhsa-dashboard.data.gov.uk/) has numerous visualsations all of which are easy to recreate as downloads for each chart available.
+
+### How data for a graph was collected
+
+Pick something of general interest from site above? We might want to check which (if any) are stable and evergreen, e.g. does the flu cases chart get taken down when flu season over?
+
+
 ***
 
 ## Planning data
 
+There are a number of datasets available here: [https://www.planning.data.gov.uk/](https://www.planning.data.gov.uk/)
+
+### Possible visualisation
+
+Sample data: [data/conservation-area.geojson](data/conservation-area.geojson)
+
+A random conservation area geojson file was downloaded. There's no reason it needs to be a conservation area and no reason it has to be that one. It's just an example of a map that could be used for a visualisation.
+
+### How data was collected
+
+Stable urls available for any given dataset on the platform, as csv, json or geojson where relevant.
+
 ***
 
 ## Price paid data
+
 
 ***
 
