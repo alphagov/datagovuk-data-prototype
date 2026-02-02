@@ -32,27 +32,6 @@ From resulting rows were sorted by date and the last four rows were taken. The s
 
 ***
 
-## House prices
-
-It's relatively straightforward to collect data on house prices for graphs/charts from the Land Registry.
-
-### Possible visualisation
-
-Sample data: [data/summary-average-house-prices-2025-11.json](data/summary-average-house-prices-2025-11.json) 
-
-Visualisations such as these [https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025](https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025) are possible.
-
-What appear to be reliable index pages make access to the data straightforward.
-
-### How data for a graph was collected
-
- 1. Collected [https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv)
- 2. Extracted last records by region to produce [data/summary-average-house-prices-2025-11.json](data/summary-average-house-prices-2025-11.json) 
- 
- This is just an example and a script to do it is here: [scripts/uk_house_prices.py](scripts/uk_house_prices.py). Many other options available.
-
-***
-
 ## Births
 
 Birth data for England and Wales is easily avaiable and most visualisations on ONS site have download links making charts easy to reproduce.
@@ -112,7 +91,6 @@ Clearly a govt mandated list of organisations (with identifiers) would be a good
 A sample script to collate the data is here: [scripts/aggregate_fhrs_ratings_by_region.py](scripts/aggregate_fhrs_ratings_by_region.py). It's nothing complicated but worth noting some work
 needed.
 
-
 ***
 
 ## Health dashboard
@@ -122,7 +100,6 @@ The [UKHSA dashboard](https://ukhsa-dashboard.data.gov.uk/) has numerous visuals
 ### Possible visualisation
 
 Pick something of general interest from site above? We might want to check which (if any) are stable and evergreen, e.g. does the flu cases chart get taken down when flu season over?
-
 
 ***
 
@@ -143,6 +120,25 @@ Stable urls available for any given dataset on the platform, as csv, json or geo
 ***
 
 ## Price paid data
+
+It's relatively straightforward to collect data on house prices for graphs/charts from the Land Registry.
+
+**Note the data referred to here is the price paid data, not the house price index which is another dataset**
+
+### Possible visualisation
+
+Sample data: [data/summary-average-house-prices-2025-11.json](data/summary-average-house-prices-2025-11.json) 
+
+Visualisations such as these [https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025](https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025) are possible.
+
+What appear to be reliable index pages make access to the data straightforward.
+
+### How data for a graph was collected
+
+ 1. Collected [https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv)
+ 2. Extracted last records by region to produce [data/summary-average-house-prices-2025-11.json](data/summary-average-house-prices-2025-11.json) 
+ 
+ This is just an example and a script to do it is here: [scripts/uk_house_prices.py](scripts/uk_house_prices.py). Many other options available.
 
 
 ***
