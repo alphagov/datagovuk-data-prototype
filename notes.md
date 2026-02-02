@@ -181,3 +181,10 @@ The CSV dowload of the above linked here: [https://www.ons.gov.uk/peoplepopulati
 
 ***
 
+## Election results
+
+### Possible visualisation
+
+### How data for a graph was collected
+
+***
