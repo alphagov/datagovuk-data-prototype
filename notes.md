@@ -1,20 +1,24 @@
-# Notes about datasets
+# Notes
 
-This is a collection of notes, observations about the curated datasets.
+This is a collection of notes about visualisation data for dataset pages.
+
+***
 
 ## Get company information
 
-Main public data API provides programatic access to much the same information (as data) as the web based end user search pages.
+No obvious candidate data specifically from the links we're thinking of putting on the page, namely user facing web service and API.
 
-Other datasets available are the quarterly statitical resports such as [Incorporated companies in the UK July to September 2025](https://assets.publishing.service.gov.uk/media/6900d17ba6048928d3fc2b20/Incorporated_companies_in_the_UK_July_to_September_2025.csv) which was used to create
-the initial data in [data/quaterly-company-formation.json](data/quaterly-company-formation.json) for a graph.
+It's possible to create a graph of quarterly formation/dissolution graph from other companies house data we could link to if required. 
 
+**However if we don't list the source on page it could be confusing for the user?**
 
-**Other sources**
+### Possible visualisation
 
-- [Companies house data products](https://www.gov.uk/guidance/companies-house-data-products)
+Sample data here: [data/quaterly-company-formation.json](data/quaterly-company-formation.json)
 
-**How data for a graph was collected**
+With caveat noted above a quarterly statitical resport such as [Incorporated companies in the UK July to September 2025](https://assets.publishing.service.gov.uk/media/6900d17ba6048928d3fc2b20/Incorporated_companies_in_the_UK_July_to_September_2025.csv) could be used to create data for a chart
+
+### How data for a graph was collected
 
 A script was used to parse the file [Incorporated companies in the UK July to September 2025](https://assets.publishing.service.gov.uk/media/6900d17ba6048928d3fc2b20/Incorporated_companies_in_the_UK_July_to_September_2025.csv).
 
@@ -26,54 +30,90 @@ This CSV file was filtered for rows where the following are true:
 
 From resulting rows were sorted by date and the last four rows were taken. The script can be found here: [scripts/company_formation.py](scripts/company_formation.py)
 
+***
+
 ## House prices
 
-**Other sources**
-The data is duplicated in a few locations so it's not totally clear where would be the best source.
+It's relatively straightforward to collect data on house prices for graphs/charts from the Land Registry.
 
-**How data for a graph was collected**
+### Possible visualisation
 
-The data in [data/summary-average-house-prices-2025-11.csv](data/summary-average-house-prices-2025-11.csv) was extracted from:
+Sample data: [data/summary-average-house-prices-2025-11.json](data/summary-average-house-prices-2025-11.json) 
 
-[https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv)
+Visualisations such as these [https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025](https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025) are possible.
 
-The data extracted was to match the table produced monthly here:
+What appear to be reliable index pages make access to the data straightforward.
 
-[https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025](https://www.gov.uk/government/statistics/uk-house-price-index-for-november-2025/uk-house-price-index-summary-november-2025)
+### How data for a graph was collected
 
-I used what seemed to be a stable source rather than extract from the html page above (even though the csv was downloadable) as the url https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/ seems to be the main stable url. In theory we could update monthly by getting the file:
+ 1. Collected [https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv](https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-2025-11.csv)
+ 2. Extracted last records by region to produce [data/summary-average-house-prices-2025-11.json](data/summary-average-house-prices-2025-11.json) 
+ 
+ This is just an example and a script to do it is here: [scripts/uk_house_prices.py](scripts/uk_house_prices.py). Many other options available.
 
-https://publicdata.landregistry.gov.uk/market-trend-data/house-price-index-data/Average-prices-[YYYY]-[MM].csv
+***
 
 ## Births
 
-Birth data for England and Wales
+Birth data for England and Wales is easily avaiable and most visualisations on ONS site have download links making charts easy to reproduce.
 
+The ONS birth data is available on a couple of urls, but in this case I used this page:
 [https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations)
 
-Scotland
+### Possible visualisation
 
-[https://www.nrscotland.gov.uk/publications/births-time-series-data-2024](https://www.nrscotland.gov.uk/publications/births-time-series-data-2024)
+Sample data: [total-live-birth-counts-england-and wales-1939-to-2024.json](total-live-birth-counts-england-and wales-1939-to-2024.json)
 
-Northern Ireland
+### How data for a graph was collected
 
-[https://www.nisra.gov.uk/publications/registrar-general-annual-report-2024-births](https://www.nisra.gov.uk/publications/registrar-general-annual-report-2024-births)
+A download of a table of live births in England and Wales was taken from the site above. This is a local copy: [data/reference/total-live-birth-counts-england-and wales-1939-to-2024.xlsx](data/reference/total-live-birth-counts-england-and wales-1939-to-2024.xlsx)
 
-**How data for a graph was collected**
+Note that the aggregated data is available on another ONS url as an Excel workbook here: [https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsinenglandandwalesbirthregistrations](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsinenglandandwalesbirthregistrations) which may be a more stable url to use.
 
-Extracted csv files from downloaded spreadsheets in [data/reference](data/reference/). Spreadsheets were from the sites listed above.
+The csv was then just converted to json.
 
+***
 
 ## Deaths
 
+***
+
 ## Food hygiene ratings
+
+Good data is available for download here: [https://ratings.food.gov.uk/open-data](https://ratings.food.gov.uk/open-data)
+
+
+### Possible visualisation
+
+Sample data: [data/fhrs-ratings-by-region.json](data/fhrs-ratings-by-region.json)
+
+There was a suggestion to create a graph or table of ratings by region which could be done by combining a couple of the FSAs downloadable datasets.
+
+### How data for a graph was collected
+
+Using the FHRS all region rating csv here: [https://safhrsprodstorage.blob.core.windows.net/opendatafileblobstorage/FHRS_All_en-GB.csv](https://safhrsprodstorage.blob.core.windows.net/opendatafileblobstorage/FHRS_All_en-GB.csv)
+
+In order to create a list of ratings by region, given the above file does not record region, only local authority. We had to create a mapping of local authorties to regions matching FSA names [data/reference/fhrs-local-authority-by-region.csv](data/reference/fhrs-local-authority-by-region.csv) - clearly a govt mandated list of organisations (with identifiers) would be a good thing :)
+
+A sample script to collate the data is here: [scripts/aggregate_fhrs_ratings_by_region.py](scripts/aggregate_fhrs_ratings_by_region.py)
+
+
+***
 
 ## Health dashboard
 
+***
+
 ## Planning data
+
+***
 
 ## Price paid data
 
+***
+
 ## Upcoming election data
+
+***
 
 ## Population data
