@@ -2,6 +2,11 @@
 
 This is a collection of notes about visualisation data for dataset pages.
 
+The following content files have not been investigated for visualisation yet as not clear what a useful relevant visualisation might be, but that could change.
+
+- [content/check-mot-history.md](content/check-mot-history.md)
+- [content/upcoming-election-data.md](content/upcoming-election-data.md)
+
 ***
 
 ## Get company information
@@ -176,6 +181,3 @@ The CSV dowload of the above linked here: [https://www.ons.gov.uk/peoplepopulati
 
 ***
 
-## Upcoming election data
-
-***
