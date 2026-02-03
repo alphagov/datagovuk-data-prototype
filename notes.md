@@ -20,7 +20,7 @@ It's possible to create a graph of quarterly formation/dissolution graph from ot
 
 ### Possible visualisation
 
-Sample data here: [data/quaterly-company-formation.json](data/quaterly-company-formation.json)
+Sample data here: [data/quarterly-company-formation-dissolution.json](data/quarterly-company-formation-dissolution.json)
 
 With caveat noted above a quarterly statitical resport such as [Incorporated companies in the UK July to September 2025](https://assets.publishing.service.gov.uk/media/6900d17ba6048928d3fc2b20/Incorporated_companies_in_the_UK_July_to_September_2025.csv) could be used to create data for a chart
 
