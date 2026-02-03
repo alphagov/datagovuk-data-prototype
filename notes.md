@@ -172,13 +172,16 @@ As with births and deaths a number of options available from [https://www.ons.go
 
 ### Possible visualisation
 
-From the above page there's an in page link to time series data here: [https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates#timeseries](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates#timeseries)
+From the above page there's an in page link UK estimates here: [https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/mid2024]](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/mid2024)
 
-Sample data: [data/united-kingdom-population-mid-year-estimate.json](data/united-kingdom-population-mid-year-estimate.json)
+Sample data: [data/annual-population-change-uk-mid-1949-to-mid-2024.json](data/annual-population-change-uk-mid-1949-to-mid-2024.json)
 
 ### How data for a graph was collected
 
-The CSV dowload of the above linked here: [https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/timeseries/ukpop/pop) was downloaded and turned into json.
+The CSV for a table of UK population bulletin 2024 was downloaded and converted to JSON. 
+
+![Screenshot figure 1 graph on page: Population estimates for the UK, England, Wales, Scotland and Northern Ireland: mid-2024](data/reference/population-uk-mid-1949-to-mid-2024.png)
+
 
 ***
 
