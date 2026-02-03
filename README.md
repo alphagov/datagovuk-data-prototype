@@ -10,7 +10,7 @@ Depending on what we find out as we go, we may add some scripts to explore ways 
 
 **Note**: Nothing here should be considered production like, but outputs/learnings will inform work intended for production.
 
-**Sample visualisation data here** [data/](data) - and notes regarding sample data here: [notes.md](notes.md)
+**Sample visualisation data here** [data](data) - and notes regarding sample data here: [notes.md](notes.md)
 
 ## Repository structure
 
@@ -39,7 +39,7 @@ The reason visualisation data should be json is to easily add metadata to the fi
 
 Others needed a little help along the way, for example by merging with another dataset from the same site. 
 
-None were too onerous or diffcult to replicate. Deatails arein [notes.md](notes.md)
+None were too onerous or diffcult to replicate. Details are in [notes.md](notes.md)
 
 ### Scripts in this repository
 
