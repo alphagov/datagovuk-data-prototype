@@ -35,11 +35,13 @@ We can fill out the rest as we go. It's more useful to have a placeholder than n
 
 To add a visualisation data just add a json file to the [data](data) directory. Nothing large in terms of file size. Visualisations will most likely be small. If in doubt, just ask.
 
-The reason visualisation data should be json is to allow us easily add metadata to the file. Some of the current samples are straight copies of data from a collection topic website (mostly as csv that were simply converted to json). 
+The reason for using JSON for visualisation data is to allow us to easily add metadata to the data file without needed any additional moving parts.
 
-Others needed a little help along the way, for example by merging with another dataset from the same site. 
+Many of the current samples are straight copies of data from some of the collection topic websites, mostly as CSV files. We then converted to JSON versions of the same data. 
 
-None were too onerous or diffcult to replicate. Details are in [notes.md](notes.md)
+Other examples needed a little help along the way, for example by merging other datasets from the same site/publisher. 
+
+Of the examples that required additional work none were too onerous or diffcult to replicate. Details are in [notes.md](notes.md)
 
 ### Scripts in this repository
 
