@@ -69,7 +69,7 @@ Sample data: [data/total-live-birth-counts-england-and-wales-1939-to-2024.json](
 
 ### How data for a graph was collected
 
-A download of a table of live births in England and Wales was taken from the site above. This is a local copy: [data/reference/total-live-birth-counts-england-and wales-1939-to-2024.xlsx](data/reference/total-live-birth-counts-england-and wales-1939-to-2024.xlsx)
+A download of a table of live births in England and Wales was taken from the site above. This is a local copy: [data/reference/total-live-birth-counts-england-and-wales-1939-to-2024.xlsx](data/reference/total-live-birth-counts-england-and-wales-1939-to-2024.xlsx)
 
 Note that the aggregated data is available on another ONS url as an Excel workbook here: [https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsinenglandandwalesbirthregistrations](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsinenglandandwalesbirthregistrations) which may be a more stable url to use.
 
