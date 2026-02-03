@@ -37,7 +37,7 @@ To add a visualisation data just add a json file to the [data](data) directory. 
 
 The reason for using JSON for visualisation data is to allow us to easily add metadata to the data file without needed any additional moving parts.
 
-Many of the current samples are straight copies of data from some of the collection topic websites, mostly as CSV files. We then converted to JSON versions of the same data. 
+Many of the current samples are straight copies of data from some of the collection topic websites, mostly as CSV files. We then converted the CSV to JSON versions of the same data. 
 
 Other examples needed a little help along the way, for example by merging other datasets from the same site/publisher. 
 
