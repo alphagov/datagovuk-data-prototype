@@ -123,7 +123,13 @@ The [UKHSA dashboard](https://ukhsa-dashboard.data.gov.uk/) has numerous visuals
 
 ### Possible visualisation
 
-Pick something of general interest from site above? We might want to check which (if any) are stable and evergreen, e.g. does the flu cases chart get taken down when flu season over?
+Sample data: [data/ukhsa-chart-weekly-positivity-of-people-receiving-a-pcr-test.json](data/ukhsa-chart-weekly-positivity-of-people-receiving-a-pcr-test.json)
+
+The above is a randomly selected dataset. 
+
+We could/should pick something of general interest from site above? 
+
+We might want to check which (if any) are stable and evergreen, e.g. does the flu cases chart get taken down when flu season over?
 
 ***
 
