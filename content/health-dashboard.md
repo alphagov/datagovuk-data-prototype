@@ -11,3 +11,5 @@ tags:
 visualisation-data: ukhsa-chart-weekly-positivity-of-people-receiving-a-pcr-test.json
 contact:
 ---
+
+This dashboard shows public health data across England. The data covers outbreaks, respiratory viruses, emerging infections, childhood vaccinations, antimicrobial resistance, healthcare-associated infections, syndromic surveillance, weather and climate risks, vector-borne diseases, streptococcal infections, blood-borne viruses, vaccine-preventable diseases and environmental hazards. 
