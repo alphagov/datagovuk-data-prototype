@@ -1,6 +1,6 @@
 ---
 title: Births
-collection: Population
+collection: People
 website: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths
 api: https://developer.ons.gov.uk/
 dataset: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsinenglandandwalesbirthregistrations
