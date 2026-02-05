@@ -1,6 +1,7 @@
 {
   "title": "Bank of England interest rates",
   "source": "https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp",
+  "publisher": "Bank of England",
   "data": [
     {
       "Date Changed": "18 Dec 25",
