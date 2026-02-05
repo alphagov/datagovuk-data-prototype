@@ -5,10 +5,6 @@ website: https://ratings.food.gov.uk/
 api: https://api.ratings.food.gov.uk/Help
 dataset: https://ratings.food.gov.uk/open-data
 page-last-updated: "2026-01-23"
-tags:
- - Website
- - API
- - Dataset
 visualisation-data: fhrs-ratings-by-region.json
 contact:
 ---
