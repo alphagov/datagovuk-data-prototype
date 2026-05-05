@@ -13,19 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-05-04T0720.csv](results/collection-check-2026-05-04T0720.csv)
+Using test results file: [results/collection-check-2026-05-05T0701.csv](results/collection-check-2026-05-05T0701.csv)
 
 
-
-## Planning data
-Page: [https://data.gov.uk/collections/land-and-property/planning-data](https://data.gov.uk/collections/land-and-property/planning-data)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://www.planning.data.gov.uk/dataset/](https://www.planning.data.gov.uk/dataset/)
-
-
-
+No issues reported
