@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<ul>
+    <li><a href="{{ url_for('frontend.search') }}">Search tests</a></li>
+    <li>
+        <a href="{{ url_for('frontend.visualisations') }}"
+            >Visualisation tests</a
+        >
+    </li>
+    <li><a href="{{ url_for('frontend.get_collections') }}">Collections</a></li>
+</ul>
+{% endblock %}

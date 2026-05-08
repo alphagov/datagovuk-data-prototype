@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Collections{% endblock %}
+{% block json_alternate %}
+  <link rel="alternate" href="{{ url_for('frontend.get_collections_json') }}" type="application/json">
+{% endblock %}
+{% block content %}
+  <ul>
+    {% for collection in collections %}
+      <li><a href="{{ url_for('frontend.get_collection', slug=collection.slug) }}">{{ collection.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block title %}Postgres keyword + semantic{%
+endblock %} {% block content %}
+
+<form action="{{ url_for('postgres_search.hybrid_search') }}" method="get">
+    <textarea name="q" placeholder="Search..." rows="4">{{ query }}</textarea>
+    <button type="submit">Hybrid Search</button>
+</form>
+
+{% if query %}
+<h2>Results</h2>
+<p>
+    {{ results|length }} hybrid (keyword + semantic search) results for "{{
+    query }}"
+</p>
+{% if results %}
+<ul>
+    {% for topic in results %}
+    <li>
+        <a
+            href="{{ url_for('frontend.get_topic', slug=topic.collection.slug, topic_slug=topic.slug) }}"
+            >{{ topic.title }}</a
+        >
+        <small>in {{ topic.collection.title }}</small>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No results found.</p>
+{% endif %} {% endif %}
+
+<hr />
+
+<details name="notes" closed>
+    <summary>Notes</summary>
+    <p>
+        This combines Postgres full-text keyword search with pgvector semantic
+        search.
+    </p>
+    <p>
+        Each search returns its top candidates, then reciprocal rank fusion
+        (RRF) merges them into a single ranked list.
+    </p>
+    <p>
+        Items that score well in both lists rise to the top. An item that
+        appears in only one list can still appear in final list if ranked highly
+        in source list.
+    </p>
+    <p>
+        All of this runs inside Postgres, no separate search service required.
+    </p>
+    <p>
+        Embeddings are generated locally with a sentence-transformers model
+        (snowflake-arctic-embed-s, 384 dims) over each topic's title + body.
+        They're computed when sample content is loaded, and re-runs of the
+        loader skip topics whose content hasn't changed.
+    </p>
+</details>
+
+{% endblock %}

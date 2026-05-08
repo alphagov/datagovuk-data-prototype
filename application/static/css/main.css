@@ -1,0 +1,17 @@
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.9rem; }
+
+
+.grid-sidebar {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: var(--pico-grid-column-gap, 1rem);
+}
+
+[aria-label="breadcrumb"] {
+  --pico-nav-breadcrumb-divider: "›";
+}
