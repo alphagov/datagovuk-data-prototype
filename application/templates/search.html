@@ -1,12 +1,10 @@
 {% extends "base.html" %} {% block content %}
 <ul>
     <li>
-        <a href="{{ url_for('postgres_search.search') }}"
-            >Postgres keyword search</a
-        >
+        <a href="{{ url_for('search.postgres') }}">Postgres keyword search</a>
     </li>
     <li>
-        <a href="{{ url_for('postgres_search.hybrid_search') }}"
+        <a href="{{ url_for('search.postgres_hybrid') }}"
             >Postgres hybrid search</a
         >
     </li>

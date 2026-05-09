@@ -29,10 +29,12 @@ def register_errorhandlers(app):
 
 def register_blueprints(app):
     from application.frontend.views import frontend
-    from application.pgsearch.views import pgsearch_bp
+    from application.search.views import search_bp
+    from application.visualisations.views import visualisations_bp
 
     app.register_blueprint(frontend)
-    app.register_blueprint(pgsearch_bp)
+    app.register_blueprint(search_bp)
+    app.register_blueprint(visualisations_bp)
 
 
 def register_extensions(app):

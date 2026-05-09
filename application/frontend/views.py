@@ -13,24 +13,6 @@ def index():
     return render_template("index.html")
 
 
-@frontend.route("/search")
-def search():
-    breadcrumbs = [
-        {"page": "Home", "href": url_for("frontend.index")},
-        {"page": "Search tests"},
-    ]
-    return render_template("search.html", breadcrumbs=breadcrumbs)
-
-
-@frontend.route("/visualisations")
-def visualisations():
-    breadcrumbs = [
-        {"page": "Home", "href": url_for("frontend.index")},
-        {"page": "Search tests"},
-    ]
-    return render_template("visualisations.html", breadcrumbs=breadcrumbs)
-
-
 @frontend.route("/collections")
 def get_collections():
     collections = Collection.query.all()
