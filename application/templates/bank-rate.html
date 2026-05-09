@@ -1,0 +1,72 @@
+{% extends "base-visualisation.html" %} {% block title %}Bank Rate —
+Visualisations{% endblock %} {% block content %}
+<p>
+    <a href="{{ url_for('visualisations.index') }}"
+        >Back to visualisations index</a
+    >
+</p>
+<h1>Bank of England Bank Rate</h1>
+
+<div id="chart-bank-rate" style="margin-top: 1.5rem"></div>
+
+<p>
+    The data for this graph is available from the
+    <a href="https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp"
+        >Bank of England database</a
+    >.
+</p>
+<p>The following processing was done on source data:</p>
+<ul>
+    <li>Reversing of chronological order</li>
+</ul>
+<p>
+    Source:
+    <a href="https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp">
+        Bank Rate history, Bank of England
+    </a>
+</p>
+<p>Dataset: no direct download (data is served via js on the source page)</p>
+<p>Publisher: Bank of England</p>
+<p>
+    <a
+        href="https://github.com/ashimali/visualisations/blob/main/application/bank_rate/views.py"
+        >Source code</a
+    >
+    (links to view method, js is in the template)
+</p>
+
+<hr />
+
+{% endblock %} {% block scripts %}
+<script>
+    Highcharts.chart('chart-bank-rate', {
+        chart: {zoomType: 'x'},
+        title: {text: "Base rate since 1975"},
+        xAxis: {
+            type: 'datetime',
+            title: {text: 'Date'}
+        },
+        yAxis: {
+            title: {text: 'Rate (%)'},
+            labels: {
+                format: '{value}%'
+            }
+        },
+        tooltip: {
+            valueSuffix: '%',
+            valueDecimals: 2
+        },
+        legend: {enabled: false},
+        plotOptions: {
+            series: {
+                marker: {enabled: false},
+                step: 'left'
+            }
+        },
+        series: [{
+            name: 'Bank Rate',
+            data: {{ series_data | safe }}
+        }]
+    });
+</script>
+{% endblock %}
