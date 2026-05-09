@@ -1,13 +1,12 @@
 {% extends "base.html" %} {% block content %}
 <ul>
+    {% for visualisation in visualisations %}
     <li>
-        <a href="{{ url_for('visualisations.air_pollution.index') }}"
-            >Air pollution</a
+        <a href="{{ url_for('visualisations.show', slug=visualisation.slug) }}"
+            >{{ visualisation.title }}</a
         >
     </li>
-    <li>
-        <a href="{{ url_for('visualisations.bank_rate.index') }}">Bank rates</a>
-    </li>
+    {% endfor %}
 </ul>
 
 {% endblock %}

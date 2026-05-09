@@ -1,0 +1,24 @@
+{
+    "title": "Fuel and oil prices",
+    "data": {
+        "csv": "4.1.2-Table 1.csv",
+        "reverse": false,
+        "x_col": "Year",
+        "x_type": "str",
+        "y_cols": [
+            {"col": "Motor spirit:\nPremium unleaded / ULSP\n(Pence per litre)\n[Note 1, 4]", "type": "float"},
+            {"col": "Derv: Diesel / ULSD\n(Pence per litre)\n[Note 1, 5]", "type": "float"}
+        ]
+    },
+    "chart": {
+        "chart": {"height": 500},
+        "title": {"text": null},
+        "xAxis": {"type": "datetime", "title": {"text": "Year"}},
+        "yAxis": {"title": {"text": "Price in pence per litre"}},
+        "legend": {"enabled": true, "layout": "horizontal", "align": "center"},
+        "series": [
+            {"name": "Premium unleaded petrol"},
+            {"name": "Ultra low sulphur diesel"}
+        ]
+    }
+}

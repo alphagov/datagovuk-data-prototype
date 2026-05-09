@@ -1,0 +1,19 @@
+{
+    "title": "Air pollution levels above moderate",
+    "data": {
+        "csv": "fig17_urban_days_above_moderate.csv",
+        "reverse": true,
+        "x_col": "Year",
+        "x_type": "int",
+        "y_cols": [
+            {"col": "Mean number of days with moderate or above pollution", "type": "float"}
+        ]
+    },
+    "chart": {
+        "title": {"text": "Mean number in urban areas"},
+        "xAxis": {"type": "integer", "title": {"text": "Days", "align": "right"}},
+        "yAxis": {"title": {"text": "Days"}},
+        "legend": {"enabled": false},
+        "series": [{"name": "Days pollution were above moderate"}]
+    }
+}

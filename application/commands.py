@@ -17,11 +17,6 @@ from application.models import Collection, Link, LinkType, Topic
 sandbox_cli = AppGroup("sandbox")
 
 
-@sandbox_cli.command(name="map")
-def make_json_sitemap():
-    print(current_app.config["CONTENT_DIR"])
-
-
 @sandbox_cli.command(name="content")
 def content():
     collections = os.listdir(current_app.config["COLLECTIONS_DIR"])
