@@ -15,8 +15,5 @@ COPY . .
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --dev
 
-RUN chmod +x docker/entrypoint.sh
-
 EXPOSE 5050
-ENTRYPOINT ["/bin/sh", "docker/entrypoint.sh"]
 CMD ["uv", "run", "flask", "run", "--host=0.0.0.0", "--port=5050"]
