@@ -1,0 +1,19 @@
+{
+  "title": "General election 2024",
+  "data": {
+    "csv": "parties-general-election-04-07-2024.csv",
+    "reverse": false,
+    "x_col": "Party name",
+    "x_type": "str",
+    "y_cols": [{ "col": "Constituencies won", "type": "int" }],
+    "drop_zero": true
+  },
+  "chart": {
+    "chart": { "type": "bar" },
+    "title": { "text": "Constituencies won by party, 2024 general election" },
+    "xAxis": { "type": "category", "title": { "text": "Party" } },
+    "yAxis": { "title": { "text": "Constituencies won" } },
+    "legend": { "enabled": false },
+    "series": [{ "name": "Constituencies won" }]
+  }
+}

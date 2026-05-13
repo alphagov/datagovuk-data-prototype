@@ -1,4 +1,5 @@
 import glob
+import logging
 import os
 
 from flask import Blueprint, abort, current_app, render_template, url_for
@@ -8,6 +9,9 @@ from application.utils import load_data, load_json
 visualisations_bp = Blueprint("visualisations", __name__, url_prefix="/visualisations")
 
 _CASTS = {"int": int, "float": float, "str": str}
+
+
+logger = logging.getLogger(__name__)
 
 
 # if a cast fails then we can end up with gaps in
@@ -55,6 +59,19 @@ def show(slug):
     if data_config.get("reverse"):
         records.reverse()
 
+    y_cols = data_config["y_cols"]
+
+    if data_config.get("drop_zero"):
+        # drop any records that have zero in y col
+        records = [
+            r
+            for r in records
+            if any(
+                _safe_cast(_CASTS[y["type"]], r[y["col"]]) not in (None, 0)
+                for y in y_cols
+            )
+        ]
+
     # data returned by csv readers are all strings
     # so we do a bit of casting. Could move the series
     # into the json but makes that a bit harder to read
@@ -62,7 +79,7 @@ def show(slug):
     x_col = data_config["x_col"]
 
     chart = config["chart"]
-    for i, y in enumerate(data_config["y_cols"]):
+    for i, y in enumerate(y_cols):
         y_cast = _CASTS[y["type"]]
         chart["series"][i]["data"] = [
             [x_cast(r[x_col]), _safe_cast(y_cast, r[y["col"]])] for r in records
