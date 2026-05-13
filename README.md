@@ -2,17 +2,7 @@
 
 ## Technical spikes
 
-An experimental and prototyping repo — not production. It contains a Flask application to experiment with search functionality, data visualisations or other.
-
-**Why Flask** when our main frontend is Django? I'm glad you asked. The main technical audience for the spikes are Python developers and Flask has very little framework to get in the way of understanding the code that does the thing. Also I'm most familiar with Flask, so there's that. 
-
-Arguably the heaviest congnitive load is the use of SQLAlchemy but there's not too much fancy stuff going on here in its use. 
-
-Also doing it this way (Flask) helps make it clear, so there can be no misunderstanding that nothing here can just be lifted and shifted to our real applications.
-
-In addition absolutely no attempt is made to make anything here look like data.gov.uk. The intention is to have a place to kick the tyres and join the dots. Therefore when you see the word prototype, don't think of a frontend focussed prototype, it should be thought of as simplified working code, backend focussed, to establish a mental model of how things could work.
-
-There are things done in Flask commands that would almost certainly be stand alone applications (think embedding pipelines) but the aim is to get a view on required functionality not build a real version.
+At the moment this is a playground for visualisation
 
 
 > [!Important] 
@@ -36,13 +26,7 @@ A simple app to test some of the "hows" and "whats" around functionality we may 
 git clone <repo>
 cd datagovuk-sandbox
 cp example.flaskenv .flaskenv
-just serve        # builds image and starts the full stack
-```
-
-Then, in a second terminal once the stack is up:
-
-```
-just setup        # seeds content, embeddings, and search index
+just serve    # builds image and starts the full stack
 ```
 
 The app is then available at http://localhost:5050.
@@ -52,10 +36,6 @@ The app is then available at http://localhost:5050.
 | Command | Description |
 |---------|-------------|
 | `just serve` | Build and start the full stack |
-| `just setup` | Load content and compute embeddings |
-| `just embed --force` | Re-embed all topics |
-| `just migrate <message>` | Create a new database migration |
-| `just upgrade` / `just downgrade` | Apply or roll back migrations |
 
 ---
 

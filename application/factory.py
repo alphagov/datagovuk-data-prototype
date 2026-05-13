@@ -1,8 +1,6 @@
 from dotenv import load_dotenv
 from flask import Flask, render_template
 
-import application.models  # noqa: F401
-
 load_dotenv()
 
 
@@ -34,23 +32,10 @@ def register_blueprints(app):
     app.register_blueprint(frontend)
     app.register_blueprint(visualisations_bp)
 
-    if app.config["SEARCH_ENABLED"]:
-        from application.search.views import search_bp
-
-        app.register_blueprint(search_bp)
-
 
 def register_extensions(app):
-    from application.extensions import db, migrate
-
-    db.init_app(app)
-    migrate.init_app(app, db)
+    pass
 
 
 def register_commands(app):
-    from application.commands import register_search_commands, sandbox_cli
-
-    if app.config["SEARCH_ENABLED"]:
-        register_search_commands()
-
-    app.cli.add_command(sandbox_cli)
+    pass

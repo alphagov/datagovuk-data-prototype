@@ -12,30 +12,6 @@ services:
       - /app/.venv
     networks:
       - local-network
-    depends_on:
-      db:
-        condition: service_healthy
-
-  db:
-    image: pgvector/pgvector:pg18
-    environment:
-      POSTGRES_DB: sandbox
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql
-    networks:
-      - local-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d sandbox"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-
-volumes:
-  postgres_data:
 
 networks:
   local-network:
