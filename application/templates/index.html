@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <ul>
+    {% if config.SEARCH_ENABLED %}
     <li><a href="{{ url_for('search.index') }}">Search</a></li>
+    {% endif %}
     <li>
         <a href="{{ url_for('visualisations.index') }}">Visualisations</a>
     </li>

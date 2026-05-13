@@ -21,6 +21,7 @@ class Config:
     )
 
     DEBUG = False
+    SEARCH_ENABLED = True
 
 
 class DevelopmentConfig(Config):
@@ -33,3 +34,7 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = (
         "postgresql://postgres:password@test_db:5432/discover_test"
     )
+
+
+class ProductionConfig(Config):
+    SEARCH_ENABLED = False
