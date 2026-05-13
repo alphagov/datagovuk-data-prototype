@@ -1,54 +1,47 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename='css/main.css') }}"
-        />
-        <title>{% block title %}Discover{% endblock %}</title>
-        {% block endhead %}{% endblock %}
-    </head>
-    <body>
-        <header class="container">
-            <nav>
-                <ul>
-                    <li>
-                        <strong
-                            ><a href="{{ url_for('frontend.index') }}"
-                                >{% block titlebar_service %}Sandbox{% endblock
-                                %}</a
-                            ></strong
-                        >
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main class="container">
-            {% with messages = get_flashed_messages() %} {% if messages %}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <title>{% block title %}Sandbox{% endblock %}</title>
+    {% block endhead %}{% endblock %}
+</head>
+
+<body>
+    <header class="container">
+        <nav>
             <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
+                <li>
+                    <strong><a href="{{ url_for('frontend.index') }}">{% block titlebar_service %}Sandbox{% endblock
+                            %}</a></strong>
+                </li>
             </ul>
-            {% endif %} {% endwith %} {% if breadcrumbs %}
-            <nav aria-label="breadcrumb">
-                <ul>
-                    {% for crumb in breadcrumbs %} {% if not loop.last %}
-                    <li><a href="{{ crumb.href }}">{{ crumb.page }}</a></li>
-                    {% else %}
-                    <li>{{ crumb.page }}</li>
-                    {% endif %} {% endfor %}
-                </ul>
-            </nav>
-            {% endif %} {% block content %}{% endblock %}
-        </main>
-        {% block scripts %}{% endblock %}
-    </body>
+        </nav>
+    </header>
+    <main class="container">
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %} {% if breadcrumbs %}
+        <nav aria-label="breadcrumb">
+            <ul>
+                {% for crumb in breadcrumbs %} {% if not loop.last %}
+                <li><a href="{{ crumb.href }}">{{ crumb.page }}</a></li>
+                {% else %}
+                <li>{{ crumb.page }}</li>
+                {% endif %} {% endfor %}
+            </ul>
+        </nav>
+        {% endif %} {% block content %}{% endblock %}
+    </main>
+    {% block scripts %}{% endblock %}
+</body>
+
 </html>

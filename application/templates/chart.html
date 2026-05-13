@@ -1,16 +1,11 @@
 {% extends "base-visualisation.html" %}
 {% block title %}{{ title }} — Visualisations{% endblock %}
 {% block content %}
-<p>
-    <a href="{{ url_for('visualisations.index') }}"
-        >Back to visualisations index</a
-    >
-</p>
 <h1>{{ title }}</h1>
 <div id="chart" style="margin-top: 1.5rem"></div>
 {% endblock %}
 {% block scripts %}
 <script>
-    Highcharts.chart('chart', {{ chart_config | tojson | safe }});
+    Highcharts.chart('chart', {{chart_config | tojson | safe }});
 </script>
 {% endblock %}

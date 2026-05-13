@@ -85,8 +85,12 @@ def show(slug):
             [x_cast(r[x_col]), _safe_cast(y_cast, r[y["col"]])] for r in records
         ]
 
+    breadcrumbs = [
+        {"page": "Home", "href": url_for("frontend.index")},
+        {"page": "Visualisations", "href": url_for("visualisations.index")},
+        {"page": slug.replace("-", " ").capitalize()},
+    ]
+
     return render_template(
-        "chart.html",
-        title=config["title"],
-        chart_config=chart,
+        "chart.html", title=config["title"], chart_config=chart, breadcrumbs=breadcrumbs
     )
