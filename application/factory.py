@@ -48,6 +48,9 @@ def register_extensions(app):
 
 
 def register_commands(app):
-    from application.commands import sandbox_cli
+    from application.commands import register_search_commands, sandbox_cli
+
+    if app.config["SEARCH_ENABLED"]:
+        register_search_commands()
 
     app.cli.add_command(sandbox_cli)

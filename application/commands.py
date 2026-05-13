@@ -6,11 +6,6 @@ import sqlalchemy as sa
 from flask import current_app
 from flask.cli import AppGroup
 
-from application.embeddings import (
-    content_hash,
-    embed_batch,
-    embedding_input,
-)
 from application.extensions import db
 from application.models import Collection, Link, LinkType, Topic
 
@@ -84,6 +79,8 @@ def _sync_links(topic, parsed_links):
 
 def _maybe_update_embedding(topic):
     """Recompute topic.embedding only if title+body has changed since last embed."""
+    from application.embeddings import content_hash, embed_batch, embedding_input
+
     new_hash = content_hash(topic.title, topic.body)
     if topic.content_hash == new_hash and topic.embedding is not None:
         return
@@ -92,44 +89,53 @@ def _maybe_update_embedding(topic):
     topic.content_hash = new_hash
 
 
-@sandbox_cli.command(name="embed")
-@click.option(
-    "--force",
-    is_flag=True,
-    default=False,
-    help="embed every topic, not just ones with a stale or missing embedding.",
-)
-@click.option(
-    "--batch-size",
-    default=100,
-    show_default=True,
-    help="Number of topics per embeddings run.",
-)
-def embed(force, batch_size):
-    query = Topic.query
-    if not force:
-        query = query.filter(
-            sa.or_(Topic.embedding.is_(None), Topic.content_hash.is_(None))
-        )
-    topics = query.all()
+def register_search_commands():
+    """Attach search-only CLI commands to sandbox_cli.
 
-    if not topics:
-        print("Nothing to embed")
-        return
+    Called from the app factory only when SEARCH_ENABLED is True, so the
+    embeddings module (and its torch / sentence-transformers deps) is never
+    imported when search is off.
+    """
+    from application.embeddings import content_hash, embed_batch, embedding_input
 
-    print(f"Embedding {len(topics)} topics in batches of {batch_size}")
-    total = 0
-    for start in range(0, len(topics), batch_size):
-        chunk = topics[start : start + batch_size]
-        inputs = [embedding_input(t.title, t.body) for t in chunk]
-        vectors = embed_batch(inputs)
-        for topic, vector in zip(chunk, vectors):
-            topic.embedding = vector
-            topic.content_hash = content_hash(topic.title, topic.body)
-        db.session.commit()
-        total += len(chunk)
-        print(f"  {total}/{len(topics)}")
-    print("Done")
+    @sandbox_cli.command(name="embed")
+    @click.option(
+        "--force",
+        is_flag=True,
+        default=False,
+        help="embed every topic, not just ones with a stale or missing embedding.",
+    )
+    @click.option(
+        "--batch-size",
+        default=100,
+        show_default=True,
+        help="Number of topics per embeddings run.",
+    )
+    def embed(force, batch_size):
+        query = Topic.query
+        if not force:
+            query = query.filter(
+                sa.or_(Topic.embedding.is_(None), Topic.content_hash.is_(None))
+            )
+        topics = query.all()
+
+        if not topics:
+            print("Nothing to embed")
+            return
+
+        print(f"Embedding {len(topics)} topics in batches of {batch_size}")
+        total = 0
+        for start in range(0, len(topics), batch_size):
+            chunk = topics[start : start + batch_size]
+            inputs = [embedding_input(t.title, t.body) for t in chunk]
+            vectors = embed_batch(inputs)
+            for topic, vector in zip(chunk, vectors):
+                topic.embedding = vector
+                topic.content_hash = content_hash(topic.title, topic.body)
+            db.session.commit()
+            total += len(chunk)
+            print(f"  {total}/{len(topics)}")
+        print("Done")
 
 
 def _add_topics(collection):
@@ -156,7 +162,8 @@ def _add_topics(collection):
                 "english", sa.literal(f"{t.title} {t.body}")
             )
             _sync_links(t, _parse_links(md.metadata))
-            _maybe_update_embedding(t)
+            if current_app.config["SEARCH_ENABLED"]:
+                _maybe_update_embedding(t)
 
             db.session.add(collection)
             db.session.commit()

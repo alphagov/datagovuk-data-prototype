@@ -18,6 +18,10 @@ embed:
 serve:
 	docker compose up --build
 
+# Build and start the full stack with search (torch + sentence-transformers)
+serve-search:
+	docker compose -f compose.yaml -f compose.search.yaml up --build
+
 # Create a new migration (stack must be running)
 migrate message:
 	docker compose exec web uv run flask db migrate -m "{{message}}"

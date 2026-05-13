@@ -11,17 +11,12 @@ class Config:
     SQLALCHEMY_DATABASE_URI = DATABASE_URL
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_RECORD_QUERIES = False
+    DEBUG = False
+    SEARCH_ENABLED = False
     EMBEDDING_MODEL = "Snowflake/snowflake-arctic-embed-s"
     EMBEDDING_DIM = (
         384  # snowflake-arctic-embed-s: small dim for local CPU inference without GPU
     )
-    CKAN_PACKAGE_SEARCH_URL = os.getenv(
-        "CKAN_PACKAGE_SEARCH_URL",
-        "https://ckan.publishing.service.gov.uk/api/action/package_search",
-    )
-
-    DEBUG = False
-    SEARCH_ENABLED = True
 
 
 class DevelopmentConfig(Config):
@@ -36,5 +31,9 @@ class TestConfig(Config):
     )
 
 
-class ProductionConfig(Config):
-    SEARCH_ENABLED = False
+class SearchConfig(Config):
+    SEARCH_ENABLED = True
+    CKAN_PACKAGE_SEARCH_URL = os.getenv(
+        "CKAN_PACKAGE_SEARCH_URL",
+        "https://ckan.publishing.service.gov.uk/api/action/package_search",
+    )

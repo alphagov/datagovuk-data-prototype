@@ -15,11 +15,10 @@ dependencies = [
     "flask-migrate>=4.1.0",
     "pgvector>=0.4.2",
     "python-dotenv>=1.2.2",
-    "torch>=2.11.0",
-    "sentence-transformers>=5.4.1",
     "alembic-postgresql-enum>=1.10.0",
     "gunicorn>=26.0.0",
     "psycopg2-binary>=2.9.12",
+    "markdown-it-py>=4.0.0",
 ]
 
 [dependency-groups]
@@ -28,11 +27,14 @@ dev = [
     "pytest>=9.0.3",
     "ruff>=0.15.8",
 ]
+search = [
+    "torch>=2.11.0",
+    "sentence-transformers>=5.4.1",
+    "requests>=2.32.0",
+]
 
 [tool.uv.sources]
-torch = [
-    { index = "pytorch-cpu" },
-]
+torch = { index = "pytorch-cpu" }
 
 [[tool.uv.index]]
 name = "pytorch-cpu"

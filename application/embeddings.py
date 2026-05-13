@@ -7,11 +7,12 @@ import hashlib
 from functools import lru_cache
 
 from flask import current_app
-from sentence_transformers import SentenceTransformer
 
 
 @lru_cache(maxsize=1)
-def _model() -> SentenceTransformer:
+def _model():
+    from sentence_transformers import SentenceTransformer
+
     return SentenceTransformer(current_app.config["EMBEDDING_MODEL"])
 
 
