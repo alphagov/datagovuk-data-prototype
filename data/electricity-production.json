@@ -1,0 +1,27 @@
+{
+  "title": "Electricity generation",
+  "data": {
+    "csv": "5.6-Table 1_dukes.csv",
+    "reverse": false,
+    "x_col": "Year",
+    "x_type": "str",
+    "y_cols": [
+      { "col": "Total renewable generation", "type": "int" },
+      { "col": "Total low carbon generation", "type": "int" },
+      { "col": "Total fossil fuel generation", "type": "int" }
+    ],
+    "drop_zero": false
+  },
+  "chart": {
+    "title": { "text": "Electricity generation" },
+    "chart": { "height": 500 },
+    "xAxis": { "title": { "text": "Year" } },
+    "yAxis": { "title": { "text": "Electricity generated (GWh)" } },
+    "legend": { "enabled": true },
+    "series": [
+      { "name": "Total renewable generation" },
+      { "name": "Total low carbon generation" },
+      { "name": "Total fossil fuel generation" }
+    ]
+  }
+}

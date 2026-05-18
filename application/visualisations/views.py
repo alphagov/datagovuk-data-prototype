@@ -8,7 +8,13 @@ from application.utils import load_data, load_json
 
 visualisations_bp = Blueprint("visualisations", __name__, url_prefix="/visualisations")
 
-_CASTS = {"int": int, "float": float, "str": str}
+
+def _parse_int(value):
+    # in case csvs contain formatted numbers e.g. "6,102"
+    return int(value.replace(",", ""))
+
+
+_CASTS = {"int": _parse_int, "float": float, "str": str}
 
 
 logger = logging.getLogger(__name__)
