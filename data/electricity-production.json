@@ -4,7 +4,7 @@
     "csv": "5.6-Table 1_dukes.csv",
     "reverse": false,
     "x_col": "Year",
-    "x_type": "str",
+    "x_type": "int",
     "y_cols": [
       { "col": "Total renewable generation", "type": "int" },
       { "col": "Total low carbon generation", "type": "int" },
