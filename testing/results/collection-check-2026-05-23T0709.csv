@@ -1,0 +1,118 @@
+collection,slug,link-url,link-text,type,on-page,reachable
+business-and-economy,agricultural-commodity-prices,https://www.gov.uk/government/collections/commodity-prices,Agricultural commodity prices,website,True,True
+business-and-economy,bank-of-england-interest-rates,https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp,Bank Rate history,website,True,True
+business-and-economy,electricity,https://www.gov.uk/government/collections/electricity-statistics,Electricity statistics,website,True,True
+business-and-economy,energy-prices,https://www.gov.uk/government/collections/quarterly-energy-prices,Energy prices,website,True,True
+business-and-economy,food-hygiene-ratings,https://ratings.food.gov.uk/,Food hygiene ratings,website,True,True
+business-and-economy,food-hygiene-ratings,https://api.ratings.food.gov.uk/Help,Food hygiene rating API,api,True,True
+business-and-economy,fuel-and-oil-prices,https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-monthly-statistics,Fuel and oil prices,website,True,True
+business-and-economy,get-charity-information,https://register-of-charities.charitycommission.gov.uk/en/charity-search,Get charity information,website,True,True
+business-and-economy,get-charity-information,https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api,Charity Commission API,api,True,True
+business-and-economy,get-company-information,https://find-and-update.company-information.service.gov.uk/,Get company information,website,True,True
+business-and-economy,get-company-information,https://developer.company-information.service.gov.uk/,Companies House API,api,True,True
+business-and-economy,inflation,https://www.ons.gov.uk/economy/inflationandpriceindices,Inflation and price indices,website,True,True
+business-and-economy,uk-trade,https://www.gov.uk/government/statistics/uk-trade-in-numbers/uk-trade-in-numbers-web-version,UK trade statistics,website,True,True
+environment,aerial-photography,https://environment.data.gov.uk/dataset/32e2ff04-0c14-4544-b107-baa1552d0eee,Oblique aerial photography,website,True,True
+environment,aerial-photography,https://environment.data.gov.uk/dataset/dae203a8-ba24-4c54-bab0-866b9faadb58,Vertical aerial photography,website,True,True
+environment,air-quality,https://check-air-quality.service.gov.uk/,Check air quality,website,True,True
+environment,air-quality,https://get-air-pollution-data.service.gov.uk/,Get air pollution data,website,True,True
+environment,climate-projections,https://www.metoffice.gov.uk/research/approach/collaboration/ukcp,Climate projections,website,True,True
+environment,coastal-erosion,https://environment.data.gov.uk/dataset/9fede91f-5acd-4fd2-9bd8-98153fa3c2ff,Coastal erosion data,website,True,True
+environment,flood-alerts,https://check-for-flooding.service.gov.uk/alerts-and-warnings,Flood alerts,website,True,True
+environment,forest-and-woodlands,https://data-forestry.opendata.arcgis.com/datasets/0682c7cb180e4abe9dee7e4d5cc35784_0/explore,National Forest Inventory map,website,True,True
+environment,landfill-sites,https://environment.data.gov.uk/dataset/692eaecf-d465-11e4-ac2e-f0def148f590,Landfill sites,website,True,True
+environment,landfill-sites,https://environment.data.gov.uk/dataset/7a955570-d465-11e4-a37c-f0def148f590,Historic landfill sites,dataset,True,True
+environment,lidar,https://environment.data.gov.uk/dataset/13787b9a-26a4-4775-8523-806d13af58fc,LIDAR Composite Digital Terrain Model,website,True,True
+environment,long-term-flood-risk,https://www.gov.uk/check-long-term-flood-risk,Flood risk in England,website,True,True
+environment,long-term-flood-risk,https://map.sepa.org.uk/floodmaps,Flood risk in Scotland,website,True,True
+environment,long-term-flood-risk,https://naturalresources.wales/splash?orig=%2fflooding%2fcheck-your-flood-risk-by-postcode%2f,Flood risk in Wales,website,True,True
+environment,long-term-flood-risk,https://www.nidirect.gov.uk/articles/check-risk-flooding-your-area,Flood risk in Northern Ireland,website,True,True
+environment,main-rivers,https://www.arcgis.com/apps/webappviewer/index.html?id=17cd53dfc524433980cc333726a56386,Main rivers map,website,True,True
+environment,main-rivers,https://environment.data.gov.uk/dataset/25dde009-ba7d-40de-8380-c5c3bb32ccdc,Main rivers map: datasets,dataset,True,True
+environment,non-woodland-trees,https://ncea.maps.arcgis.com/apps/instant/sidebar/index.html?appid=cf571f455b444e588aa94bbd22021cd3,Trees outside woodland map,website,True,True
+environment,non-woodland-trees,https://environment.data.gov.uk/dataset/9c41b3c6-2453-44f6-9900-e7821f1a1072,Trees outside woodland: datasets,dataset,True,True
+environment,public-registers,https://environment.data.gov.uk/public-register/view/index,Environmental public registers,website,True,True
+environment,rail-noise,https://environment.data.gov.uk/dataset/3fb3c2d7-292c-4e0a-bd5b-d8e4e1fe2947,Rail noise,website,True,True
+environment,road-noise,https://environment.data.gov.uk/dataset/562c9d56-7c2d-4d42-83bb-578d6e97a517,Road noise,website,True,True
+environment,sites-of-special-scientific-interest,https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::sites-of-special-scientific-interest-england/about,Sites of Special Scientific Interest (England),website,True,True
+environment,sites-of-special-scientific-interest,https://naturalengland-defra.opendata.arcgis.com/datasets/Defra::sites-of-special-scientific-interest-england/explore,Sites of Special Scientific Interest (England): map,dataset,True,True
+environment,storm-overflows,https://environment.data.gov.uk/dataset/21e15f12-0df8-4bfc-b763-45226c16a8ac,Storm overflows,website,True,True
+environment,storm-overflows,https://experience.arcgis.com/experience/c9b8f3ba094c429aa30e0e2b6eaf43ac,Storm overflows – map,dataset,True,True
+environment,water-quality,https://environment.data.gov.uk/water-quality,Water Quality Explorer,website,True,True
+environment,water-quality,https://environment.data.gov.uk/water-quality/api-docs,Water Quality Explorer API,api,True,True
+environment,weather,https://www.metoffice.gov.uk,Weather forecasts,website,True,True
+environment,weather,https://datahub.metoffice.gov.uk,Weather DataHub API,api,True,True
+environment,weather,https://climate-themetoffice.hub.arcgis.com,Met Office Climate Data Portal,dataset,True,True
+government,contracts-finder,https://www.contractsfinder.service.gov.uk/Search,Contracts finder,website,True,True
+government,council-tax-statistics,https://www.gov.uk/government/collections/council-tax-statistics,Council Tax statistics,website,True,True
+government,election-results,https://electionresults.parliament.uk/,Election results,website,True,True
+government,local-government-finance,https://www.gov.uk/government/statistical-data-sets/live-tables-on-local-government-finance,Local government finance,website,True,True
+government,local-government-finance,https://www.gov.uk/government/collections/local-government-finance-statistics-england,Local government finance statistics – England (compendium),dataset,True,True
+government,service-assessment-reports,https://www.gov.uk/service-standard-reports,Service assessment reports,website,True,True
+government,transparency-data,https://www.gov.uk/search/transparency-and-freedom-of-information-releases?content_store_document_type=transparency,Transparency data,website,True,True
+land-and-property,addresses,https://www.ordnancesurvey.co.uk/products/os-gb-address,Ordnance Survey address database,website,True,True
+land-and-property,dwelling-stock,https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants,Dwelling stock,website,True,True
+land-and-property,energy-performance-of-buildings,https://www.gov.uk/government/collections/energy-performance-of-buildings-certificates,Energy performance of buildings,website,True,True
+land-and-property,english-housing-survey,https://www.gov.uk/government/collections/english-housing-survey-live-tables,English Housing Survey,website,True,True
+land-and-property,fire-statistics,https://www.gov.uk/government/statistical-data-sets/fire-statistics-data-tables,Fire statistics,website,True,True
+land-and-property,housing-supply,https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building,Housing supply,website,True,True
+land-and-property,land-and-property-ownership,https://www.gov.uk/search-property-information-land-registry,HM Land Registry,website,True,True
+land-and-property,land-and-property-ownership,https://use-land-property-data.service.gov.uk,HM Land Registry datasets,website,True,True
+land-and-property,land-and-property-ownership,https://www.gov.uk/guidance/national-polygon-service,National Polygon Service,website,True,True
+land-and-property,land-and-property-ownership,https://www.ros.gov.uk,Registers of Scotland,website,True,True
+land-and-property,land-and-property-ownership,https://use-land-property-data.service.gov.uk/api-information,HM Land Registry API,api,True,True
+land-and-property,planning-data,https://www.planning.data.gov.uk,Planning and housing data,website,True,True
+land-and-property,planning-data,https://www.planning.data.gov.uk/docs,Planning Data API,api,True,True
+land-and-property,planning-data,https://www.planning.data.gov.uk/dataset/,Planning data datasets,dataset,True,True
+land-and-property,property-price-paid,https://landregistry.data.gov.uk/app/ppd,Search the property price paid dataset,website,True,True
+land-and-property,property-price-paid,https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads,Download the price paid dataset,dataset,True,True
+land-and-property,rents-lettings-and-tenancies,https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies,"Rents, lettings and tenancies",website,True,True
+land-and-property,uk-house-prices,https://landregistry.data.gov.uk/app/ukhpi/,Search UK house price index,website,True,True
+land-and-property,uk-house-prices,https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-december-2025,Download UK house price index,dataset,True,True
+people,births,https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations,Births,website,True,True
+people,compare-school-performance,https://www.compare-school-performance.service.gov.uk/,Compare school performance,website,True,True
+people,compare-school-performance,https://www.compare-school-performance.service.gov.uk/download-data,Download school performance data,dataset,True,True
+people,courts-management,https://www.gov.uk/government/collections/hmcts-management-information,Courts management information,website,True,True
+people,courts-management,https://www.gov.uk/government/collections/hmcts-management-information-modernised-services,Courts management information – modernised services,website,True,True
+people,deaths,https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregistrationsummarytables/2024,Deaths,website,True,True
+people,deprivation,https://deprivation.communities.gov.uk/,Deprivation in England,website,True,True
+people,deprivation,https://www.gov.scot/collections/scottish-index-of-multiple-deprivation-2020/,Deprivation in Scotland,website,True,True
+people,deprivation,https://www.gov.wales/welsh-index-multiple-deprivation-2025-series,Deprivation in Wales,website,True,True
+people,deprivation,https://www.nisra.gov.uk/statistics/people-and-communities/deprivation,Deprivation in Northern Ireland,website,True,True
+people,early-years-and-childcare-inspections-and-outcomes,https://www.gov.uk/government/collections/early-years-and-childcare-statistics,Childcare provider statistics,website,True,True
+people,family-food-statistics,https://www.gov.uk/government/collections/family-food-statistics,Family Food (2011 to present),website,True,True
+people,family-food-statistics,https://webarchive.nationalarchives.gov.uk/ukgwa/20130103031008/http://www.defra.gov.uk/statistics/foodfarm/food/familyfood/,Family Food (2002 to 2010) National Archive,website,True,True
+people,family-food-statistics,https://www.gov.uk/government/statistics/family-food-open-data,Family Food (1974 to 2000) dataset,dataset,True,True
+people,homelessness,https://www.gov.uk/government/statistical-data-sets/live-tables-on-homelessness,Homelessness,website,True,True
+people,immigration,https://www.gov.uk/government/collections/immigration-statistics-quarterly-release,Quarterly immigration statistics,website,True,True
+people,immigration,https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables,Immigration statistics: data tables,dataset,True,True
+people,museum-and-gallery-visits,https://www.gov.uk/government/statistical-data-sets/museums-and-galleries-monthly-visits,Museum and gallery visits (monthly),website,True,True
+people,museum-and-gallery-visits,https://www.gov.uk/government/statistics/daily-visitors-to-dcms-sponsored-museums-and-galleries,Museum and gallery visits,website,True,True
+people,police-recorded-crime-and-outcomes,https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables,Crime and outcomes data,website,True,True
+people,population-estimates,https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates,Population estimates,website,True,True
+people,public-health-dashboard,https://ukhsa-dashboard.data.gov.uk/,UKHSA data dashboard,website,True,True
+people,public-health-dashboard,https://ukhsa-dashboard.data.gov.uk/access-our-data,UKHSA data dashboard API,api,True,True
+people,pupil-attendance,https://www.gov.uk/government/collections/statistics-pupil-absence,Pupil attendance and absence,website,True,True
+people,pupil-attendance,https://explore-education-statistics.service.gov.uk,Education statistics explorer,website,True,True
+people,pupil-attendance,https://api.education.gov.uk/statistics/docs,Education statistics explorer (API),api,True,True
+people,social-mobility,https://social-mobility.data.gov.uk/,Social mobility,website,True,True
+people,state-funded-schools-inspections-and-outcomes,https://www.gov.uk/government/collections/maintained-schools-and-academies-inspections-and-outcomes-official-statistics,State-funded schools statistics,website,True,True
+people,vocational-qualifications,https://www.gov.uk/government/collections/statistics-vocational-qualifications,Vocational qualifications,website,True,True
+people,vocational-qualifications,https://www.gov.uk/government/collections/statistics-vocational-qualifications,Vocational and other qualifications: quarterly releases,website,True,True
+transport,bus-statistics,https://www.gov.uk/government/statistical-data-sets/bus-statistics-data-tables,Bus statistics,website,True,True
+transport,driving-tests,https://www.gov.uk/government/collections/driving-tests-and-instructors-statistics,Driving tests,website,True,True
+transport,fishing-vessels,https://www.gov.uk/government/collections/uk-vessel-lists,Fishing vessel statistics,website,True,True
+transport,maritime-and-shipping,https://maps.dft.gov.uk/maritime-statistics/index.html,Maritime statistics dashboard,website,True,True
+transport,maritime-and-shipping,https://www.gov.uk/government/collections/maritime-and-shipping-statistics,Maritime and shipping statistics,dataset,True,True
+transport,mot-results,https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain,MOT test results,website,True,True
+transport,national-travel-survey,https://www.gov.uk/government/collections/national-travel-survey-statistics,National Travel Survey,website,True,True
+transport,national-travel-survey,https://maps.dft.gov.uk/transport-statistics-finder/index.html,Transport Statistics Finder,dataset,True,True
+transport,real-time-and-historic-train-information,https://www.nationalrail.co.uk/developers/darwin-data-feeds,Train information APIs,api,True,True
+transport,road-conditions,https://www.gov.uk/government/collections/road-network-size-and-condition,Road condition statistics,website,True,True
+transport,road-safety,https://www.gov.uk/government/statistical-data-sets/road-safety-open-data,Road safety,website,True,True
+transport,road-traffic,https://roadtraffic.dft.gov.uk,Road traffic statistics,website,True,True
+transport,road-traffic,https://roadtraffic.dft.gov.uk/docs/index.html,Road traffic API,api,True,True
+transport,road-traffic,https://roadtraffic.dft.gov.uk/downloads,Road traffic datasets,dataset,True,True
+transport,transport-connectivity,https://connectivity-tool-lite.dft.gov.uk/index,Connectivity Tool Lite,website,True,True
+transport,transport-connectivity,https://www.gov.uk/guidance/connectivity-tool,Connectivity Tool: guidance for built environment professionals,website,True,True
+transport,transport-connectivity,https://www.gov.uk/government/publications/transport-connectivity-metric,Transport connectivity metric,website,True,True
