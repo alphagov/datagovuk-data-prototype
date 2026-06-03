@@ -1,0 +1,75 @@
+{
+  "title": "MMR1 (measles) vaccine coverage by UK nation",
+  "source": {
+    "documentation-url": "https://www.gov.uk/government/collections/vaccine-uptake",
+    "notes": "MMR1 coverage at age 5 (coverageByYear) for England, Scotland, Wales and Northern Ireland, reshaped from the four UKHSA chart-download CSVs into a single wide table (one column per nation). MMR1 is the first dose, so this measures children who have had at least one MMR dose by age 5."
+  },
+  "data": {
+    "csv": "mmr1-coverage-by-nation.csv",
+    "reverse": false,
+    "x_col": "year",
+    "x_type": "int",
+    "y_cols": [
+      {
+        "col": "england",
+        "type": "float"
+      },
+      {
+        "col": "scotland",
+        "type": "float"
+      },
+      {
+        "col": "wales",
+        "type": "float"
+      },
+      {
+        "col": "northern-ireland",
+        "type": "float"
+      }
+    ]
+  },
+  "chart": {
+    "chart": {
+      "type": "line",
+      "height": 500
+    },
+    "title": {
+      "text": "MMR1 coverage at age 5 by UK nation (2014 to 2025)"
+    },
+    "xAxis": {
+      "title": {
+        "text": "Year (at 31 March)"
+      },
+      "allowDecimals": false
+    },
+    "yAxis": {
+      "title": {
+        "text": "Coverage (% of children)"
+      },
+      "min": 80,
+      "max": 100
+    },
+    "tooltip": {
+      "valueSuffix": "%",
+      "valueDecimals": 1,
+      "shared": true
+    },
+    "legend": {
+      "enabled": true
+    },
+    "series": [
+      {
+        "name": "England"
+      },
+      {
+        "name": "Scotland"
+      },
+      {
+        "name": "Wales"
+      },
+      {
+        "name": "Northern Ireland"
+      }
+    ]
+  }
+}
