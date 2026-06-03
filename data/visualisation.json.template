@@ -1,5 +1,10 @@
 {
     "title": "Page title shown in browser tab and as h1",
+    "source": {
+        "documentation-url": "URL of the page the data was published on",
+        "data-url": "URL of the original data file (csv, xlsx, etc.)",
+        "notes": "What we extracted, selected, pivoted etc. from the source"
+    },
     "data": {
         "csv": "your-data-file.csv",
         "reverse": false,

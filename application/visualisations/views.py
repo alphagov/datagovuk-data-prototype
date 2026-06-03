@@ -98,5 +98,9 @@ def show(slug):
     ]
 
     return render_template(
-        "chart.html", title=config["title"], chart_config=chart, breadcrumbs=breadcrumbs
+        "chart.html",
+        title=config["title"],
+        chart_config=chart,
+        source=config.get("source"),
+        breadcrumbs=breadcrumbs,
     )

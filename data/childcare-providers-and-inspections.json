@@ -1,37 +1,70 @@
 {
-  "title": "Overall effectiveness of active early years registered provider",
+  "title": "Overall effectiveness of active early years registered providers",
+  "source": {
+    "documentation-url": "https://www.gov.uk/government/statistics/childcare-providers-and-inspections-as-at-31-august-2025",
+    "data-url": "https://assets.publishing.service.gov.uk/media/69170dc5b49cc443451617d6/Childcare_providers_and_inspections_charts_and_tables_as_at_31_August_2025.xlsx",
+    "notes": "Derived from Table 5 of the source spreadsheet. The percentage columns for each overall effectiveness outcome across the five years (2021 to 2025) was extracted for this chart."
+  },
   "data": {
-    "csv": "childcare-providers-and-inspections-charts-and-tables-as-at-31-August-2025-Table 5.csv",
+    "csv": "childcare-inspections-quality-trend.csv",
     "reverse": false,
-    "x_col": "X column name (must match CSV header exactly)",
+    "x_col": "year",
     "x_type": "int",
     "y_cols": [
       {
-        "col": "Y column name (must match CSV header exactly)",
-        "type": "float"
+        "col": "outstanding",
+        "type": "int"
+      },
+      {
+        "col": "good",
+        "type": "int"
+      },
+      {
+        "col": "requires-improvement",
+        "type": "int"
+      },
+      {
+        "col": "inadequate",
+        "type": "int"
       }
     ]
   },
   "chart": {
+    "chart": {
+      "type": "line",
+      "height": 500
+    },
     "title": {
-      "text": "Chart title shown above the plot"
+      "text": "Early years inspection outcomes over time (% of inspected providers)"
     },
     "xAxis": {
       "title": {
-        "text": "X axis label"
-      }
+        "text": "Year (at 31 August)"
+      },
+      "allowDecimals": false
     },
     "yAxis": {
       "title": {
-        "text": "Y axis label"
-      }
+        "text": "Percentage of inspected providers"
+      },
+      "min": 0,
+      "max": 100
     },
     "legend": {
-      "enabled": false
+      "enabled": true
     },
     "series": [
       {
-        "name": "Series name shown in tooltip"
+        "name": "Outstanding"
+      },
+      {
+        "name": "Good"
+      },
+      {
+        "name": "Requires improvement"
+      },
+      {
+        "name": "Inadequate"
       }
     ]
   }
