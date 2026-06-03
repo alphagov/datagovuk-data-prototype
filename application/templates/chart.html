@@ -2,29 +2,8 @@
 Visualisations{% endblock %} {% block content %}
 <h1>{{ title }}</h1>
 <div id="chart" style="margin-top: 1.5rem"></div>
-{% if source %}
-<section style="margin-top: 1.5rem">
-    <h2>Source and notes</h2>
-    {% if source.notes %}
-    <p>{{ source.notes }}</p>
-    {% endif %}
-    <dl>
-        {% if source['documentation-url'] %}
-        <dt>Sourced from</dt>
-        <dd>
-            <a href="{{ source['documentation-url'] }}"
-                >{{ source['documentation-url'] }}</a
-            >
-        </dd>
-        {% endif %} {% if source['data-url'] %}
-        <dt>Original data</dt>
-        <dd>
-            <a href="{{ source['data-url'] }}">{{ source['data-url'] }}</a>
-        </dd>
-        {% endif %}
-    </dl>
-</section>
-{% endif %} {% endblock %} {% block scripts %}
+{% include "_source.html" %}
+{% endblock %} {% block scripts %}
 <script>
     Highcharts.chart('chart', {{chart_config | tojson | safe }});
 </script>

@@ -29,6 +29,12 @@ def _safe_cast(cast, value):
         return None
 
 
+def _title(config):
+    if "headline" in config:
+        return config["headline"]["title"]
+    return config["title"]
+
+
 def _list_visualisations():
     data_dir = os.path.join(current_app.config["PROJECT_ROOT"], "data")
     items = []
@@ -36,7 +42,7 @@ def _list_visualisations():
         filename = os.path.basename(path)
         slug = os.path.splitext(filename)[0]
         config = load_json(filename)
-        items.append({"slug": slug, "title": config["title"]})
+        items.append({"slug": slug, "title": _title(config)})
     return items
 
 
@@ -59,6 +65,21 @@ def show(slug):
         config = load_json(f"{slug}.json")
     except FileNotFoundError:
         abort(404)
+
+    breadcrumbs = [
+        {"page": "Home", "href": url_for("frontend.index")},
+        {"page": "Visualisations", "href": url_for("visualisations.index")},
+        {"page": slug.replace("-", " ").capitalize()},
+    ]
+
+    if "headline" in config:
+        return render_template(
+            "headline.html",
+            title=config["headline"]["title"],
+            items=config["headline"]["items"],
+            source=config.get("source"),
+            breadcrumbs=breadcrumbs,
+        )
 
     data_config = config["data"]
     records = load_data(data_config["csv"])
@@ -90,12 +111,6 @@ def show(slug):
         chart["series"][i]["data"] = [
             [x_cast(r[x_col]), _safe_cast(y_cast, r[y["col"]])] for r in records
         ]
-
-    breadcrumbs = [
-        {"page": "Home", "href": url_for("frontend.index")},
-        {"page": "Visualisations", "href": url_for("visualisations.index")},
-        {"page": slug.replace("-", " ").capitalize()},
-    ]
 
     return render_template(
         "chart.html",

@@ -1,0 +1,28 @@
+{% extends "base-visualisation.html" %} {% block title %}{{ title }} —
+Visualisations{% endblock %} {% block content %}
+<h1>{{ title }}</h1>
+
+<div class="grid">
+    {% for item in items %}
+    <article>
+        <hgroup>
+            <h2>{{ item.subtitle }}</h2>
+            <p>{{ item.description }}</p>
+        </hgroup>
+        <p style="font-size: 2.5rem; font-weight: bold">
+            {{ "{:,}".format(item.value) }}%
+        </p>
+        {% if item.trend %}
+        <p>
+            {{ "▲" if item.trend == "up" else "▼" }} {{ "+" if item.trend ==
+            "up" else "−" }}{{ "{:,}".format(item.value_change) }}% {% if
+            item.percent_change is defined %}({{ item.percent_change }}%){%
+            endif %}
+        </p>
+        {% endif %}
+        <p>{{ item.analysis }}</p>
+    </article>
+    {% endfor %}
+</div>
+
+{% include "_source.html" %} {% endblock %}

@@ -1,0 +1,24 @@
+{
+    "source": {
+        "documentation-url": "URL of the page the data was published on",
+        "data-url": "URL of the original data file (csv, xlsx, etc.)",
+        "notes": "What we extracted, selected etc. from the source"
+    },
+    "headline": {
+        "title": "Page title shown in browser tab and as h1",
+        "visualisation_type": "headline",
+        "source": "URL of the source (single value, as in the original headline format)",
+        "publisher": "Publishing organisation",
+        "items": [
+            {
+                "subtitle": "Short label for this figure",
+                "description": "Longer description of what the figure measures",
+                "value": 0,
+                "analysis": "Context for the change, e.g. the comparison period",
+                "trend": "up or down",
+                "value_change": 0,
+                "percent_change": 0
+            }
+        ]
+    }
+}
