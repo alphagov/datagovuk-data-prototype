@@ -1,0 +1,38 @@
+{
+  "title": "Overall effectiveness of active early years registered provider",
+  "data": {
+    "csv": "childcare-providers-and-inspections-charts-and-tables-as-at-31-August-2025-Table 5.csv",
+    "reverse": false,
+    "x_col": "X column name (must match CSV header exactly)",
+    "x_type": "int",
+    "y_cols": [
+      {
+        "col": "Y column name (must match CSV header exactly)",
+        "type": "float"
+      }
+    ]
+  },
+  "chart": {
+    "title": {
+      "text": "Chart title shown above the plot"
+    },
+    "xAxis": {
+      "title": {
+        "text": "X axis label"
+      }
+    },
+    "yAxis": {
+      "title": {
+        "text": "Y axis label"
+      }
+    },
+    "legend": {
+      "enabled": false
+    },
+    "series": [
+      {
+        "name": "Series name shown in tooltip"
+      }
+    ]
+  }
+}
