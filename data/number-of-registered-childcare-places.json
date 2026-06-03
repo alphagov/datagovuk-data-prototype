@@ -1,0 +1,47 @@
+{
+  "title": "Number of registered childcare places",
+  "source": {
+    "documentation-url": "https://explore-education-statistics.service.gov.uk/find-statistics/childcare-and-early-years-provider-survey/2025",
+    "data-url": "https://explore-education-statistics.service.gov.uk/find-statistics/childcare-and-early-years-provider-survey/2025#dataBlock-4fc5ab60-f877-40af-8143-26727d7ecfd0-tables",
+    "notes": "Downloaded from the table on the page. Pivoted to one column per provider type, keeping the three main groups (group-based, school-based, childminders) and dropping the Total and school sub-type rows to match the chart on the source page."
+  },
+  "data": {
+    "csv": "number-of-registered-childcare-places.csv",
+    "reverse": false,
+    "x_col": "year",
+    "x_type": "int",
+    "y_cols": [
+      { "col": "Group-based providers", "type": "int" },
+      { "col": "School-based providers", "type": "int" },
+      { "col": "Childminders", "type": "int" }
+    ]
+  },
+  "chart": {
+    "chart": {
+      "type": "line",
+      "height": 500
+    },
+    "title": {
+      "text": "Number of registered childcare places by provider type"
+    },
+    "xAxis": {
+      "title": {
+        "text": "Year"
+      },
+      "allowDecimals": false
+    },
+    "yAxis": {
+      "title": {
+        "text": "Number of places"
+      }
+    },
+    "legend": {
+      "enabled": true
+    },
+    "series": [
+      { "name": "Group-based providers" },
+      { "name": "School-based providers" },
+      { "name": "Childminders" }
+    ]
+  }
+}
