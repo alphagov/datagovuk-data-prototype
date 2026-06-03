@@ -13,8 +13,24 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-06-02T0757.csv](results/collection-check-2026-06-02T0757.csv)
+Using test results file: [results/collection-check-2026-06-03T0800.csv](results/collection-check-2026-06-03T0800.csv)
 
+
+
+## Sample page
+Page: [https://data.gov.uk/collections/early-years/sample-page](https://data.gov.uk/collections/early-years/sample-page)
+
+
+Check the following links are on the page above - the test does report false positives:
+
+- https://www.gov.uk/government/collections/statistics-pupil-absence
+
+- https://explore-education-statistics.service.gov.uk
+
+- https://api.education.gov.uk/statistics/docs
+
+
+            
 
 
 ## Deprivation
