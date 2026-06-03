@@ -1,0 +1,31 @@
+{
+  "source": {
+    "documentation-url": "https://www.gov.uk/government/statistics/childcare-providers-and-inspections-as-at-31-august-2025",
+    "data-url": "https://assets.publishing.service.gov.uk/media/69170dc5b49cc443451617d6/Childcare_providers_and_inspections_charts_and_tables_as_at_31_August_2025.xlsx",
+    "notes": "Derived from Table 5 of the source spreadsheet (percentage of inspected providers). Values compare the most recent year (31 August 2025) with 31 August 2021."
+  },
+  "headline": {
+    "title": "Early years inspection outcomes, 2025",
+    "visualisation_type": "headline",
+    "source": "https://www.gov.uk/government/statistics/childcare-providers-and-inspections-as-at-31-august-2025",
+    "publisher": "Ofsted",
+    "items": [
+      {
+        "subtitle": "Outstanding",
+        "description": "Percentage of inspected providers rated outstanding",
+        "value": 13,
+        "analysis": "At 31 August 2025, down from 17% in 2021.",
+        "trend": "down",
+        "value_change": 4
+      },
+      {
+        "subtitle": "Good",
+        "description": "Percentage of inspected providers rated good",
+        "value": 85,
+        "analysis": "At 31 August 2025, up from 80% in 2021.",
+        "trend": "up",
+        "value_change": 5
+      }
+    ]
+  }
+}
