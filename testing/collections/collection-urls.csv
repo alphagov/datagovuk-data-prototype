@@ -12,9 +12,39 @@ business-and-economy,get-company-information,https://find-and-update.company-inf
 business-and-economy,get-company-information,https://developer.company-information.service.gov.uk/,Companies House API,api
 business-and-economy,inflation,https://www.ons.gov.uk/economy/inflationandpriceindices,Inflation and price indices,website
 business-and-economy,uk-trade,https://www.gov.uk/government/statistics/uk-trade-in-numbers/uk-trade-in-numbers-web-version,UK trade statistics,website
-early-years,sample-page,https://www.gov.uk/government/collections/statistics-pupil-absence,Pupil attendance and absence,website
-early-years,sample-page,https://explore-education-statistics.service.gov.uk,Education statistics explorer,website
-early-years,sample-page,https://api.education.gov.uk/statistics/docs,Education statistics explorer (API),api
+early-years,child-height-and-weight,https://fingertips.phe.org.uk/static-reports/obesity-physical-activity-nutrition/national-child-measurement-programme-2024-2025-academic-year.html,Child height and weight statistics 2024/25 - England,website
+early-years,child-height-and-weight,https://digital.nhs.uk/data-and-information/publications/statistical/national-child-measurement-programme,Child height and weight statistics 2006/07 to 2023/24 - England,website
+early-years,child-height-and-weight,https://publichealthscotland.scot/publications/show-all-releases?id=20566,Child height and weight statistics - Scotland,website
+early-years,child-height-and-weight,https://www.opendata.nhs.scot/dataset/primary-1-body-mass-index-bmi-statistics,Child height and weight data - Scotland,website
+early-years,child-height-and-weight,https://phw.nhs.wales/topic/child-measurement-programme/#reports,Child height and weight statistics - Wales,website
+early-years,child-height-and-weight,https://publichealthwales.shinyapps.io/ChildMeasurementProgrammeDashboard/,Child height and weight dashboard - Wales,website
+early-years,child-height-and-weight,https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health,Statistical profile of children's health - Northern Ireland,website
+early-years,childcare-providers,https://www.gov.uk/government/collections/early-years-and-childcare-statistics,Ofsted Childcare providers and inspections statistics,website
+early-years,childcare-providers,https://explore-education-statistics.service.gov.uk/find-statistics/childcare-and-early-years-provider-survey/releases,DfE Childcare and early years provider survey reports,website
+early-years,childcare-providers,https://www.gov.uk/browse/childcare-parenting/childcare,Find childcare,website
+early-years,childhood-vaccinations,https://ukhsa-dashboard.data.gov.uk/cover/childhood-vaccinations,UKHSA childhood vaccination dashboard,website
+early-years,childhood-vaccinations,https://www.gov.uk/government/collections/vaccine-uptake#cover-of-vaccination-evaluated-rapidly-programme,Childhood vaccination - UK and England,website
+early-years,childhood-vaccinations,https://publichealthscotland.scot/publications/show-all-releases?id=20562,Childhood vaccination - Scotland,website
+early-years,childhood-vaccinations,https://www.opendata.nhs.scot/dataset/childhood-immunisation-statistics,Childhood vaccination data - Scotland,website
+early-years,childhood-vaccinations,https://scotland.shinyapps.io/phs-vaccination-surveillance/,Childhood vaccination dashboard - Scotland,website
+early-years,childhood-vaccinations,https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/,Childhood vaccination - Wales,website
+early-years,childhood-vaccinations,https://www.publichealth.hscni.net/publications/annual-immunisation-and-vaccine-preventable-diseases-reports,Childhood vaccination - Northern Ireland,website
+early-years,early-years-development-review,https://www.gov.uk/government/collections/child-and-maternal-health-statistics#child-development-outcomes-at-2-to-2-and-a-half-years,Early years development - England,website
+early-years,early-years-development-review,https://publichealthscotland.scot/publications/show-all-releases?id=20569,Early years development statistics - Scotland,website
+early-years,early-years-development-review,https://www.opendata.nhs.scot/group/early-child-development,Early years development open data - Scotland,website
+early-years,early-years-health-indicators,https://fingertips.phe.org.uk/static-reports/health-trends-in-england/England/overview.html,Fingertips health trends - England,website
+early-years,early-years-health-indicators,https://fingertips.phe.org.uk/profiles,Fingertips profiles - England,website
+early-years,early-years-health-indicators,https://fingertips.phe.org.uk/profile/guidance/supporting-information/api,Fingertips API - England,website
+early-years,early-years-health-indicators,https://scotland.shinyapps.io/ScotPHO_profiles_tool/,Scottish Public Health Observatory (ScotPHO) - Scotland,website
+early-years,early-years-health-indicators,https://phw.nhs.wales/,Public Health Wales,website
+early-years,early-years-health-indicators,https://www.health-ni.gov.uk/articles/health-review-statistics-pre-school-children,Health review statistics for pre-school children - Northern Ireland,website
+early-years,education-statistics,https://explore-education-statistics.service.gov.uk/find-statistics?themeId=e6e31160-fe79-4556-f3a9-08d86094b9e8&sortBy=newest,Early years statistics,website
+early-years,education-statistics,https://api.education.gov.uk/statistics/docs/,Explore education statistics API,website
+early-years,long-term-development-learning-and-wellbeing-studies,https://children2020s.ipsos.com/,Children of the 2020s study website - England,website
+early-years,long-term-development-learning-and-wellbeing-studies,https://www.gov.uk/government/collections/education-and-outcomes-pathways-studies-eops,Education and outcomes pathways studies - England,website
+early-years,long-term-development-learning-and-wellbeing-studies,https://ons.metadata.works/browser/dataset/1378704,Children of the 2020s on the Secure Research Service - England,website
+early-years,long-term-development-learning-and-wellbeing-studies,https://growingupinscotland.org.uk/scottish-government-reports,Growing up in Scotland study reports - Scotland,website
+early-years,long-term-development-learning-and-wellbeing-studies,https://datacatalogue.ukdataservice.ac.uk/series/series/200020#abstract,Growing up in Scotland on the UK Data service - Scotland,website
 environment,aerial-photography,https://environment.data.gov.uk/dataset/32e2ff04-0c14-4544-b107-baa1552d0eee,Oblique aerial photography,website
 environment,aerial-photography,https://environment.data.gov.uk/dataset/dae203a8-ba24-4c54-bab0-866b9faadb58,Vertical aerial photography,website
 environment,air-quality,https://check-air-quality.service.gov.uk/,Check air quality,website
