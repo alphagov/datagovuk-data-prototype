@@ -1,9 +1,9 @@
 import csv
+
 import click
-
 from jinja2 import Template
-from scripts.config import RESULTS_DIR, COLLECTION_URL, TESTING_DIR
 
+from scripts.config import COLLECTION_URL, RESULTS_DIR, TESTING_DIR
 
 template = Template("""
 # data.gov.uk collection page checks

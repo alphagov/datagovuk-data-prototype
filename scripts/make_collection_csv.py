@@ -1,16 +1,16 @@
 import subprocess
 import tempfile
 from pathlib import Path
+
+import click
+import frontmatter
+
 from scripts.config import (
     COLLECTION_CSV_FIELDS,
     COLLECTIONS_CSV,
     COLLECTIONS_SUBDIR,
     REPO_URL,
 )
-
-import click
-import frontmatter
-
 from scripts.utils import write_output
 
 

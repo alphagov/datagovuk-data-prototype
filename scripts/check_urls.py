@@ -1,12 +1,10 @@
 import csv
-
-import click
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import unquote, urlparse, urlunparse
 
-from urllib.parse import urlparse, urlunparse, unquote
-
+import click
 from playwright.sync_api import sync_playwright
 
 from scripts.config import COLLECTION_URL, COLLECTIONS_CSV, RESULTS_CSV, RESULTS_DIR

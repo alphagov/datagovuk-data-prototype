@@ -1,7 +1,8 @@
 import csv
+from pathlib import Path
+
 import click
 
-from pathlib import Path
 from scripts.config import COLLECTIONS_CSV
 
 
