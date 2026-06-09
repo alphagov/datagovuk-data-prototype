@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# Deploy only runs after CI passes on the same commit.
+# Branch protection should require the 'CI / lint' and 'CI / test'
+# status checks before merge — this workflow then fires automatically.
+
 permissions:
   id-token: write   # required for OIDC token exchange
   contents: read
