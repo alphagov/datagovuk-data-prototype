@@ -100,7 +100,7 @@ def get_urls(collections_dir: Path) -> list[dict]:
 @click.option("--branch", default="main", help="Git branch to clone.")
 def get_collection_urls(branch):
     with tempfile.TemporaryDirectory() as tmp:
-        dest = Path(tmp) / "datagovuk_find"
+        dest = Path(tmp) / "datagovuk"
         click.echo(f"Cloning {REPO_URL} (branch: {branch})...")
         clone_repo(REPO_URL, branch, dest)
 
