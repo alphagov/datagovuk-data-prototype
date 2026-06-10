@@ -1,13 +1,13 @@
 # datagovuk-sandbox
 
-This is a Flask app I've been using as a prototyping space for data.gov.uk ideas. It started as a visualisation playground, but I've now wired it up to run on AWS ECS Fargate with a proper CI and deploy pipeline — so anything merged to `main` gets automatically tested and deployed to AWS.
+This is a Flask app used as a prototyping space for data.gov.uk ideas. It started as a visualisation playground and has since been wired up to run on AWS ECS Fargate with a proper CI and deploy pipeline — so anything merged to `main` gets automatically tested and deployed to AWS.
 
 ---
 
 ## Running it locally
 
 > [!Important]
-> I run everything through Docker so we all get the same environment. Don't run `uv sync`, `uv add`, or `flask` directly on your machine — use the `just` commands below instead.
+> Everything runs through Docker so we all get the same environment. Don't run `uv sync`, `uv add`, or `flask` directly on your machine — use the `just` commands below instead.
 
 ### What you need
 
@@ -25,7 +25,7 @@ just serve
 
 Once it's up, the app is at http://localhost:5050.
 
-### `just` commands I use
+### `just` commands
 
 | Command | What it does |
 |---|---|
@@ -37,7 +37,7 @@ Once it's up, the app is at http://localhost:5050.
 
 ## How to contribute
 
-I keep `main` protected — please don't push directly to it. The flow is:
+`main` is protected — please don't push directly to it. The flow is:
 
 1. Branch off main: `git checkout -b feature/DGUK-XXX-short-description`
 2. Make your changes
@@ -48,7 +48,7 @@ I keep `main` protected — please don't push directly to it. The flow is:
 
 ## CI — what runs on every PR
 
-I've set up a CI workflow (`.github/workflows/ci.yml`) that runs on every pull request and every push to `main`. It does three things:
+There is a CI workflow (`.github/workflows/ci.yml`) that runs on every pull request and every push to `main`. It does three things:
 
 | Check | Tool | What it's catching |
 |---|---|---|
@@ -68,16 +68,16 @@ uv run pytest tests/ -v
 
 ## Deployment — how it gets to AWS
 
-I've set up a deploy workflow (`.github/workflows/deploy.yml`) that fires automatically whenever something merges to `main`. Here's what it does:
+There is a deploy workflow (`.github/workflows/deploy.yml`) that fires automatically whenever something merges to `main`. Here's what it does:
 
-1. Authenticates to AWS using GitHub OIDC — I'm not storing any credentials in GitHub Secrets, it uses a short-lived token instead
+1. Authenticates to AWS using GitHub OIDC — no credentials are stored in GitHub Secrets, it uses a short-lived token instead
 2. Builds the Docker image from `docker/Dockerfile`
 3. Tags it with the git commit SHA and pushes it to our ECR registry — every deploy is traceable to an exact commit
 4. Downloads the current ECS task definition from AWS, swaps in the new image tag
 5. Registers the updated task definition and tells ECS to deploy it
 6. Waits until ECS confirms the new container is healthy before finishing
 
-I deliberately don't push a `latest` tag — ECR has immutable tags turned on so you can't overwrite an existing one anyway, and using the SHA means we always know exactly what's running.
+A `latest` tag is deliberately not pushed — ECR has immutable tags turned on so you can't overwrite an existing one anyway, and using the SHA means we always know exactly what's running.
 
 ### AWS resources
 
@@ -99,7 +99,7 @@ The app runs in a private subnet and connects to RDS using IAM authentication �
 
 There's also a separate set of scripts in `scripts/` that check URLs on the data.gov.uk collection pages. They pull the list of URLs from the [datagovuk_find](https://github.com/alphagov/datagovuk_find) repo and use Playwright to verify each one is live and actually appears on the right page.
 
-These run automatically every day at 6am via `.github/workflows/check-collection-urls.yml` and commit the results back to the repo. I wouldn't bother running them locally — just trigger a manual run from the Actions tab in GitHub if you need a fresh check.
+These run automatically every day at 6am via `.github/workflows/check-collection-urls.yml` and commit the results back to the repo. There's no need to run them locally — just trigger a manual run from the Actions tab in GitHub if you need a fresh check.
 
 ### If you do want to run them locally
 
