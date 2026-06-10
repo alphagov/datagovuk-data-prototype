@@ -1,90 +1,129 @@
 # datagovuk-sandbox
 
-## Technical spikes
-
-At the moment this is a playground for visualisation
-
-
-> [!Important] 
-> To make our lives easier and consistent, all Python tooling (uv, flask, etc.) runs inside Docker — do not run `uv sync`, `uv add`, or `flask` 
-> commands directly on the host. Use the `just` commands below instead.
-
+This is a Flask app I've been using as a prototyping space for data.gov.uk ideas. It started as a visualisation playground, but I've now wired it up to run on AWS ECS Fargate with a proper CI and deploy pipeline — so anything merged to `main` gets automatically tested and deployed to AWS.
 
 ---
 
-## Flask app
+## Running it locally
 
-A simple app to test some of the "hows" and "whats" around functionality we may want to implement for real for data.gov.uk
+> [!Important]
+> I run everything through Docker so we all get the same environment. Don't run `uv sync`, `uv add`, or `flask` directly on your machine — use the `just` commands below instead.
 
-### Prerequisites
+### What you need
 
-- Docker desktop or something compatible
+- Docker Desktop (or something compatible)
+- [`just`](https://just.systems/) — if you haven't got it: `brew install just`
 
 ### Getting started
 
-```
-git clone <repo>
+```bash
+git clone https://github.com/alphagov/datagovuk-sandbox
 cd datagovuk-sandbox
 cp example.flaskenv .flaskenv
-just serve    # builds image and starts the full stack
+just serve
 ```
 
-The app is then available at http://localhost:5050.
+Once it's up, the app is at http://localhost:5050.
 
-### Available `just` commands
+### `just` commands I use
 
-| Command | Description |
-|---------|-------------|
-| `just serve` | Build and start the full stack |
+| Command | What it does |
+|---|---|
+| `just serve` | Builds the image and starts the full stack |
+| `just shell` | Opens a bash shell inside the running web container |
+| `just add <package>` | Adds a Python package via `uv add` (stack needs to be running first) |
 
 ---
 
-## Other stuff
+## How to contribute
 
-This repo also contains some other stuff that has nothing to do with Flask. It's a sandbox repo
-so expect to find other bits and pieces that don't currently have any other home.
+I keep `main` protected — please don't push directly to it. The flow is:
 
+1. Branch off main: `git checkout -b feature/DGUK-XXX-short-description`
+2. Make your changes
+3. Push and open a PR
+4. CI has to pass before anything can merge (see below)
 
-### Site checks for data.gov.uk
+---
 
-Scripts that collect URLs from the [datagovuk_find](https://github.com/alphagov/datagovuk_find) collection pages and validate them using a real browser (Playwright).
+## CI — what runs on every PR
 
-The commands are run as a github action which commits the results. They aren't intended to be run on a dev machine, unless you really want to, but why? You'll just end up with files locally that you don't know whether to commit or not (answer: not). Just head over to github and trigger the run there if you're interested.
+I've set up a CI workflow (`.github/workflows/ci.yml`) that runs on every pull request and every push to `main`. It does three things:
 
-#### GitHub actions
+| Check | Tool | What it's catching |
+|---|---|---|
+| Lint | `ruff check .` | Code errors and style problems |
+| Format | `ruff format --check .` | Inconsistent formatting |
+| Tests | `pytest tests/ -v` | Anything broken |
 
-The workflow `.github/workflows/check-collection-urls.yml` can be triggered manually to collect URLs, run checks, and commit the results. In github it also runs on daily cron at 6 am.
+If you want to run the same checks locally before pushing:
 
-##### Commands
-
-**Collect collection URLs** from the datagovuk_find repo and write `data/collections/collection-urls.csv`:
-
+```bash
+uv run ruff check .
+uv run ruff format --check .
+uv run pytest tests/ -v
 ```
+
+---
+
+## Deployment — how it gets to AWS
+
+I've set up a deploy workflow (`.github/workflows/deploy.yml`) that fires automatically whenever something merges to `main`. Here's what it does:
+
+1. Authenticates to AWS using GitHub OIDC — I'm not storing any credentials in GitHub Secrets, it uses a short-lived token instead
+2. Builds the Docker image from `docker/Dockerfile`
+3. Tags it with the git commit SHA and pushes it to our ECR registry — every deploy is traceable to an exact commit
+4. Downloads the current ECS task definition from AWS, swaps in the new image tag
+5. Registers the updated task definition and tells ECS to deploy it
+6. Waits until ECS confirms the new container is healthy before finishing
+
+I deliberately don't push a `latest` tag — ECR has immutable tags turned on so you can't overwrite an existing one anyway, and using the SHA means we always know exactly what's running.
+
+### AWS resources
+
+| Resource | Value |
+|---|---|
+| AWS account | `gds-ndl-test` — `525320085442` |
+| Region | `eu-west-2` (London) |
+| ECS cluster | `test` |
+| ECS service | `datagovuk-sandbox` |
+| ECR registry | `525320085442.dkr.ecr.eu-west-2.amazonaws.com/datagovuk-sandbox` |
+| RDS (PostgreSQL 16) | `test-postgres.clwmgus4m1tq.eu-west-2.rds.amazonaws.com:5432` |
+| Container logs | CloudWatch — `/ecs/test/datagovuk-sandbox` |
+
+The app runs in a private subnet and connects to RDS using IAM authentication — no hardcoded passwords anywhere. All the underlying infrastructure (VPC, ECS cluster, RDS, ECR, IAM roles) is managed in Terraform over in the [`datagovuk-infrastructure`](https://github.com/alphagov/datagovuk-infrastructure) repo.
+
+---
+
+## Site checks for data.gov.uk
+
+There's also a separate set of scripts in `scripts/` that check URLs on the data.gov.uk collection pages. They pull the list of URLs from the [datagovuk_find](https://github.com/alphagov/datagovuk_find) repo and use Playwright to verify each one is live and actually appears on the right page.
+
+These run automatically every day at 6am via `.github/workflows/check-collection-urls.yml` and commit the results back to the repo. I wouldn't bother running them locally — just trigger a manual run from the Actions tab in GitHub if you need a fresh check.
+
+### If you do want to run them locally
+
+```bash
+# Pull the collection URLs from the datagovuk_find repo
 uv run python -m scripts.cli get-collection-urls
-```
 
-**Check URLs** - uses the list of collection pages and urls, opens each collection page on data.gov.uk, verifies the URLs listed in the CSV are present on the page, and checks each URL is reachable in the browser. Writes a timestamped results CSV to `data/results/`:
-
-```
+# Check each URL is reachable and present on the collection page
 uv run python -m scripts.cli check-urls
-```
 
-**Check link text** - reports any URLs missing a `link-text` value:
-
-```
+# Flag any URLs that are missing link text
 uv run python -m scripts.cli check-link-text
 ```
 
-##### Results CSV
+### What's in the results CSV
 
-The check produces `data/results/collection-check-<timestamp>.csv` with columns:
+Results land in `testing/results/collection-check-<timestamp>.csv`:
 
-| Column | Description |
-|--------|-------------|
-| collection | Collection name (e.g. `environment`) |
-| slug | Slugified topic name, matches the URL path on data.gov.uk |
-| url | The URL being checked |
-| link-text | Display text for the link |
-| type | `website`, `api`, or `dataset` |
-| on-page | Whether the URL was found as a link on the collection page |
-| reachable | Whether the URL returned a successful response in the browser |
+| Column | What it means |
+|---|---|
+| `collection` | Collection name (e.g. `environment`) |
+| `slug` | URL path segment on data.gov.uk |
+| `url` | The URL being checked |
+| `link-text` | The display text for the link |
+| `type` | `website`, `api`, or `dataset` |
+| `on-page` | Whether the URL appeared as a link on the collection page |
+| `reachable` | Whether the URL loaded successfully in the browser |
