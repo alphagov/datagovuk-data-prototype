@@ -1,19 +1,30 @@
-FROM ghcr.io/astral-sh/uv:python3.14-bookworm-slim AS python
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates curl git \
-    && rm -rf /var/lib/apt/lists/* \
-    && curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin
+FROM ghcr.io/astral-sh/uv:python3.14-bookworm-slim AS builder
 
 WORKDIR /app
 COPY pyproject.toml uv.lock ./
 
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --dev --no-install-project
+    uv sync --frozen --no-dev --no-install-project
 
 COPY . .
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --dev
+    uv sync --frozen --no-dev
 
-EXPOSE 5050
-CMD ["uv", "run", "flask", "run", "--host=0.0.0.0", "--port=5050"]
+
+FROM python:3.14-slim-bookworm AS runtime
+
+RUN groupadd --system app && useradd --system --gid app app
+
+WORKDIR /app
+
+COPY --from=builder /app /app
+COPY --from=builder /root/.local /root/.local
+
+ENV PATH="/app/.venv/bin:$PATH" \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+USER app
+
+EXPOSE 8000
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "--timeout", "60", "application.wsgi:app"]
