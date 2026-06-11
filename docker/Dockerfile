@@ -18,7 +18,6 @@ RUN groupadd --system app && useradd --system --gid app app
 WORKDIR /app
 
 COPY --from=builder /app /app
-COPY --from=builder /root/.local /root/.local
 
 ENV PATH="/app/.venv/bin:$PATH" \
     PYTHONDONTWRITEBYTECODE=1 \
