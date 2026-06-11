@@ -1,20 +1,65 @@
 # datagovuk-sandbox
 
-A Flask prototyping app for data.gov.uk ideas. It runs on AWS ECS Fargate with a full CI and deploy pipeline — anything merged to `main` is automatically tested and deployed to AWS.
+![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=flat-square&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-3.x-000000?style=flat-square&logo=flask&logoColor=white)
+![AWS ECS](https://img.shields.io/badge/AWS-ECS%20Fargate-FF9900?style=flat-square&logo=amazonaws&logoColor=white)
+![CI](https://img.shields.io/github/actions/workflow/status/alphagov/datagovuk-sandbox/ci.yml?branch=main&label=CI&style=flat-square)
+![Deploy](https://img.shields.io/github/actions/workflow/status/alphagov/datagovuk-sandbox/deploy.yml?branch=main&label=Deploy&style=flat-square)
+
+A Flask prototyping app for data.gov.uk ideas. Anything merged to `main` is automatically tested and deployed to AWS ECS Fargate.
+
+**Live:** `http://test-datagovuk-sandbox-143318717.eu-west-2.elb.amazonaws.com`
 
 ---
 
-## Running it locally
+## CI / CD pipeline
 
-> [!Important]
-> Everything runs through Docker so we all get the same environment. Don't run `uv sync`, `uv add`, or `flask` directly on your machine — use the `just` commands below instead.
+```mermaid
+flowchart LR
+    PR[Pull Request] --> CI
 
-### What you need
+    subgraph CI["CI — ci.yml"]
+        Lint[ruff check]
+        Format[ruff format --check]
+        Tests[pytest]
+        Lint --> Format --> Tests
+    end
 
-- Docker Desktop (or something compatible)
-- [`just`](https://just.systems/) — if you haven't got it: `brew install just`
+    CI -->|all green| Merge[Merge to main]
 
-### Getting started
+    subgraph Deploy["Deploy — deploy.yml"]
+        OIDC[Assume AWS role\nvia GitHub OIDC]
+        ECR{Image already\nin ECR?}
+        Build[docker build + push\ntagged with commit SHA]
+        TaskDef[Download current\ntask definition]
+        Render[Swap in new\nimage tag]
+        ECS[Register new revision\nDeploy to ECS]
+        Wait[Wait for\nhealthy tasks]
+
+        OIDC --> ECR
+        ECR -->|no| Build --> TaskDef
+        ECR -->|yes — skip| TaskDef
+        TaskDef --> Render --> ECS --> Wait
+    end
+
+    Merge --> Deploy
+```
+
+---
+
+## Running locally
+
+> [!IMPORTANT]
+> Everything runs through Docker. Do not run `uv sync`, `uv add`, or `flask` directly on your machine — use the `just` commands below.
+
+### Prerequisites
+
+| Tool | Install |
+|---|---|
+| Docker Desktop | [docs.docker.com](https://docs.docker.com/get-docker/) |
+| `just` | `brew install just` |
+
+### Quickstart
 
 ```bash
 git clone https://github.com/alphagov/datagovuk-sandbox
@@ -23,40 +68,40 @@ cp example.flaskenv .flaskenv
 just serve
 ```
 
-Once it's up, the app is at http://localhost:5050.
+App available at: `http://localhost:5050`
 
-### `just` commands
+### Commands
 
 | Command | What it does |
 |---|---|
-| `just serve` | Builds the image and starts the full stack |
-| `just shell` | Opens a bash shell inside the running web container |
-| `just add <package>` | Adds a Python package via `uv add` (stack needs to be running first) |
+| `just serve` | Build the image and start the full stack |
+| `just shell` | Open a bash shell in the running web container |
+| `just add <package>` | Add a Python package via `uv add` (stack must be running) |
 
 ---
 
-## How to contribute
+## Contributing
 
-`main` is protected — please don't push directly to it. The flow is:
+`main` is protected — no direct pushes.
 
-1. Branch off main: `git checkout -b feature/DGUK-XXX-short-description`
+1. Branch: `git checkout -b feature/DGUK-XXX-short-description`
 2. Make your changes
 3. Push and open a PR
-4. CI must pass before anything can merge (see below)
+4. CI must pass before merge
 
 ---
 
-## CI — what runs on every PR
+## CI checks
 
-The CI workflow (`.github/workflows/ci.yml`) runs on every pull request and every push to `main`:
+The CI workflow (`.github/workflows/ci.yml`) runs on every PR and every push to `main`:
 
-| Check | Tool | What it's catching |
+| Check | Command | What it catches |
 |---|---|---|
-| Lint | `ruff check .` | Code errors and style problems |
+| Lint | `ruff check .` | Code errors and style violations |
 | Format | `ruff format --check .` | Inconsistent formatting |
-| Tests | `pytest tests/ -v` | Anything broken |
+| Tests | `pytest tests/ -v` | Regressions |
 
-Run the same checks locally before pushing:
+Run locally before pushing:
 
 ```bash
 uv run ruff check .
@@ -66,16 +111,16 @@ uv run pytest tests/ -v
 
 ---
 
-## Deployment — how it gets to AWS
+## Deployment
 
-The deploy workflow (`.github/workflows/deploy.yml`) fires automatically on every merge to `main`:
+The deploy workflow (`.github/workflows/deploy.yml`) runs automatically on every merge to `main`:
 
 1. Authenticates to AWS using GitHub OIDC — no credentials stored in GitHub Secrets
-2. Checks if the image for this commit SHA already exists in ECR — if so, skips the build and push (ECR tags are immutable, so re-pushing the same tag would fail)
-3. Builds the Docker image from `docker/Dockerfile` and pushes it tagged with the git commit SHA — every deploy is traceable to an exact commit
-4. Downloads the current ECS task definition from AWS, swaps in the new image tag
-5. Registers the updated task definition as a new revision and tells ECS to deploy it
-6. Waits until ECS confirms the new container is healthy before finishing
+2. Checks if the image for this commit SHA already exists in ECR — skips build if it does (ECR tags are immutable)
+3. Builds and pushes the Docker image tagged with the git commit SHA
+4. Downloads the current ECS task definition, swaps in the new image tag
+5. Registers the updated task definition as a new revision
+6. Tells ECS to deploy and waits for healthy tasks before finishing
 
 ### AWS resources
 
@@ -90,39 +135,59 @@ The deploy workflow (`.github/workflows/deploy.yml`) fires automatically on ever
 | RDS (PostgreSQL 16) | `test-postgres.clwmgus4m1tq.eu-west-2.rds.amazonaws.com:5432` |
 | Container logs | CloudWatch — `/ecs/test/datagovuk-sandbox` |
 
-The app runs in a private subnet behind an Application Load Balancer. It connects to RDS using IAM authentication — no hardcoded passwords. `SECRET_KEY` is generated by Terraform and injected as an environment variable at deploy time. All underlying infrastructure (VPC, ECS cluster, RDS, ECR, IAM roles, ALB) is managed in Terraform in the [`datagovuk-infrastructure`](https://github.com/alphagov/datagovuk-infrastructure) repo.
+The app runs in a private subnet behind an Application Load Balancer. It connects to RDS using IAM authentication — no hardcoded passwords. `SECRET_KEY` is generated by Terraform and injected as an environment variable. All infrastructure is managed in the [`datagovuk-infrastructure`](https://github.com/alphagov/datagovuk-infrastructure) repo.
+
+---
+
+## Adding a visualisation
+
+All current charts are file-based — no database required.
+
+```
+data/<slug>.json    <- chart config (title, CSV file, column mapping, Highcharts options)
+data/<slug>.csv     <- the data
+```
+
+The view at `/visualisations/<slug>` auto-discovers every `data/*.json` file. Adding a new chart is:
+
+1. Drop your CSV into `data/`
+2. Copy `data/visualisation.json.template` to `data/<slug>.json`
+3. Fill in the column names and Highcharts config
+4. Push to `main` — the deploy pipeline does the rest
+
+See [`data/README.md`](data/README.md) for the full field reference and examples.
 
 ---
 
 ## Site checks for data.gov.uk
 
-There's also a separate set of scripts in `scripts/` that check URLs on the data.gov.uk collection pages. They pull the list of URLs from the [datagovuk_find](https://github.com/alphagov/datagovuk_find) repo and use Playwright to verify each one is live and actually appears on the right page.
+Scripts in `scripts/` verify URLs on data.gov.uk collection pages using Playwright. They run automatically every day at 6am via `.github/workflows/check-collection-urls.yml` and commit results back to the repo.
 
-These run automatically every day at 6am via `.github/workflows/check-collection-urls.yml` and commit the results back to the repo. There's no need to run them locally — just trigger a manual run from the Actions tab in GitHub if you need a fresh check.
+To trigger a manual run, use the Actions tab in GitHub.
 
-### If you do want to run them locally
+### Running locally
 
 ```bash
-# Pull the collection URLs from the datagovuk_find repo
+# Pull collection URLs from the datagovuk_find repo
 uv run python -m scripts.cli get-collection-urls
 
-# Check each URL is reachable and present on the collection page
+# Check each URL is reachable and on the correct page
 uv run python -m scripts.cli check-urls
 
-# Flag any URLs that are missing link text
+# Flag URLs with missing link text
 uv run python -m scripts.cli check-link-text
 ```
 
-### What's in the results CSV
+### Results CSV columns
 
 Results land in `testing/results/collection-check-<timestamp>.csv`:
 
-| Column | What it means |
+| Column | Description |
 |---|---|
 | `collection` | Collection name (e.g. `environment`) |
 | `slug` | URL path segment on data.gov.uk |
 | `url` | The URL being checked |
-| `link-text` | The display text for the link |
+| `link-text` | Display text for the link |
 | `type` | `website`, `api`, or `dataset` |
 | `on-page` | Whether the URL appeared as a link on the collection page |
 | `reachable` | Whether the URL loaded successfully in the browser |
