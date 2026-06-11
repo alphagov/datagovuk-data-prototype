@@ -26,5 +26,5 @@ ENV PATH="/app/.venv/bin:$PATH" \
 
 USER app
 
-EXPOSE 8000
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "--timeout", "60", "application.wsgi:app"]
+EXPOSE 5050
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-5050} --workers 2 --timeout 60 application.wsgi:app"]
