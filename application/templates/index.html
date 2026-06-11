@@ -1,41 +1,7 @@
-{% extends "base.html" %}
-
-{% block content %}
-<div class="splash">
-  <img
-    src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDd3d3VhZmZkNWY5bjFnbHZqOGFnaHBhOXZzMmFwdXgxeWVvZWVwMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjI6SIIHBdRxXI40/giphy.gif"
-    alt="Loading..."
-    class="splash__gif"
-  />
-  <p class="splash__msg" id="splash-msg"></p>
-  <nav class="splash__nav">
-    <a href="{{ url_for('visualisations.index') }}" role="button">View visualisations &rarr;</a>
-  </nav>
-</div>
-
-<script>
-  const messages = [
-    "Brewing the data... ☕",
-    "Teaching the database to dance... 💃",
-    "Negotiating with the servers... 🤝",
-    "Summoning the charts... 📊",
-    "Loading... (please stand by) 📡",
-    "Wrangling some government data... 🗂️",
-    "Almost there. Probably. 🤞",
-    "Running on vibes and Terraform... ⚡",
-    "Have you tried turning it off and on again? 🔄",
-    "The data is somewhere around here... 🔍",
-  ];
-  const el = document.getElementById("splash-msg");
-  let i = Math.floor(Math.random() * messages.length);
-  el.textContent = messages[i];
-  setInterval(() => {
-    i = (i + 1) % messages.length;
-    el.style.opacity = 0;
-    setTimeout(() => {
-      el.textContent = messages[i];
-      el.style.opacity = 1;
-    }, 400);
-  }, 3000);
-</script>
+{% extends "base.html" %} {% block content %}
+<ul>
+    <li>
+        <a href="{{ url_for('visualisations.index') }}">Visualisations</a>
+    </li>
+</ul>
 {% endblock %}
