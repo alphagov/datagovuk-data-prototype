@@ -1,0 +1,40 @@
+# Version control & CI
+.git
+.github
+.gitignore
+.gitattributes
+.gitlab-ci.yml
+.travis.yml
+.readthedocs.yml
+
+# Editor / IDE / OS
+.idea
+.vscode
+.zed
+.editorconfig
+.pre-commit-config.yaml
+.DS_Store
+
+# Python virtualenvs & caches
+venv
+.venv/
+.envs/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Secrets / local env (contain SECRET_KEY, DATABASE_URL)
+.env
+.envrc
+.flaskenv
+
+# Not needed in the runtime image
+testing/
+tests/
+scripts/
+
+# Database dumps / backups
+db_backup/
+*.dump
