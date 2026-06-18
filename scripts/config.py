@@ -10,5 +10,5 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 COLLECTIONS_CSV = BASE_DIR / "testing" / "collections" / "collection-urls.csv"
 TESTING_DIR = BASE_DIR / "testing"
 RESULTS_DIR = TESTING_DIR / "results"
-REPO_URL = "https://github.com/alphagov/datagovuk_find.git"
-COLLECTIONS_SUBDIR = "app/content/collections"
+REPO_URL = "https://github.com/alphagov/datagovuk.git"
+COLLECTIONS_SUBDIR = "content/collections"

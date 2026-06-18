@@ -104,7 +104,7 @@ def get_collection_urls(branch):
         click.echo(f"Cloning {REPO_URL} (branch: {branch})...")
         clone_repo(REPO_URL, branch, dest)
 
-        collections_dir = dest / COLLECTIONS_SUBDIR
+        collections_dir = dest / "datagovuk" / COLLECTIONS_SUBDIR
         click.echo(f"Reading collection files in {collections_dir}...")
         rows = get_urls(collections_dir)
         click.echo(f"Found {len(rows)} URLs across all collections.")
