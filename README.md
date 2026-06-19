@@ -8,7 +8,7 @@
 
 A Flask prototyping app for data.gov.uk ideas. Anything merged to `main` is automatically tested and deployed to AWS ECS Fargate.
 
-**Live:** [http://test-datagovuk-sandbox-143318717.eu-west-2.elb.amazonaws.com](http://test-datagovuk-sandbox-143318717.eu-west-2.elb.amazonaws.com)
+**Live:** [https://sandbox.test.data.gov.uk](https://sandbox.test.data.gov.uk)
 
 ---
 
