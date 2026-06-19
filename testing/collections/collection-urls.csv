@@ -106,7 +106,7 @@ land-and-property,property-price-paid,https://www.gov.uk/government/statistical-
 land-and-property,rents-lettings-and-tenancies,https://www.gov.uk/government/statistical-data-sets/live-tables-on-rents-lettings-and-tenancies,"Rents, lettings and tenancies",website
 land-and-property,uk-house-prices,https://landregistry.data.gov.uk/app/ukhpi/,Search UK house price index,website
 land-and-property,uk-house-prices,https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-december-2025,Download UK house price index,dataset
-people,births,https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2024refreshedpopulations,Births,website
+people,births,https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthsummarytablesenglandandwales/2025,Births,website
 people,compare-school-performance,https://www.compare-school-performance.service.gov.uk/,Compare school performance,website
 people,compare-school-performance,https://www.compare-school-performance.service.gov.uk/download-data,Download school performance data,dataset
 people,courts-management,https://www.gov.uk/government/collections/hmcts-management-information,Courts management information,website
@@ -123,8 +123,8 @@ people,family-food-statistics,https://www.gov.uk/government/statistics/family-fo
 people,homelessness,https://www.gov.uk/government/statistical-data-sets/live-tables-on-homelessness,Homelessness,website
 people,immigration,https://www.gov.uk/government/collections/immigration-statistics-quarterly-release,Quarterly immigration statistics,website
 people,immigration,https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables,Immigration statistics: data tables,dataset
+people,museum-and-gallery-visits,https://www.gov.uk/government/statistics/dcms-sponsored-museums-and-galleries-annual-performance-indicators-202425/dcms-sponsored-museums-and-galleries-annual-performance-indicators-202425-headline-release,Museums and galleries annual performance indicators 2024/25,website
 people,museum-and-gallery-visits,https://www.gov.uk/government/statistical-data-sets/museums-and-galleries-monthly-visits,Museum and gallery visits (monthly),website
-people,museum-and-gallery-visits,https://www.gov.uk/government/statistics/daily-visitors-to-dcms-sponsored-museums-and-galleries,Museum and gallery visits,website
 people,police-recorded-crime-and-outcomes,https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables,Crime and outcomes data,website
 people,population-estimates,https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates,Population estimates,website
 people,public-health-dashboard,https://ukhsa-dashboard.data.gov.uk/,UKHSA data dashboard,website
