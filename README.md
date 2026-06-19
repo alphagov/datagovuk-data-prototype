@@ -84,6 +84,9 @@ App available at: `http://localhost:5050`
 
 `main` is protected — no direct pushes.
 
+> [!ALERT - FAKE NEWS]
+> Everything goes here, just wishful thinking but if this were real then this would be true
+
 1. Branch: `git checkout -b feature/DGUK-XXX-short-description`
 2. Make your changes
 3. Push and open a PR
