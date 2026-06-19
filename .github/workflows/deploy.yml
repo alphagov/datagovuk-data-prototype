@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'application/**'
+      - 'scripts/**'
+      - 'docker/**'
+      
 
 # Deploy only runs after CI passes on the same commit.
 # Branch protection should require the 'CI / lint' and 'CI / test'
