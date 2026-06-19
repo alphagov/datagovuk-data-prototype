@@ -1,7 +1,11 @@
-{% extends "base.html" %} {% block content %}
-<ul>
-    <li>
-        <a href="{{ url_for('visualisations.index') }}">Visualisations</a>
-    </li>
-</ul>
+{% extends "base.html" %}
+{% block content %}
+    <h1>What, where and why</h1>
+    <p>This application is used to test things, and not intended for production use</p>
+    <p>This application is deployed to the datagovuk test env ECS cluster</p>
+    <p>It's a way for us to quickly try things in an environment that allows access to AWS managed services we might use</p>
+
+    <hr />
+    <a href="{{ url_for('frontend.attic')}}">The attic where older things are kept</a>
+
 {% endblock %}

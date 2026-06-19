@@ -50,6 +50,7 @@ def _list_visualisations():
 def index():
     breadcrumbs = [
         {"page": "Home", "href": url_for("frontend.index")},
+        {"page": "Attic", "href": url_for("frontend.attic")},
         {"page": "Visualisations"},
     ]
     return render_template(
@@ -68,6 +69,7 @@ def show(slug):
 
     breadcrumbs = [
         {"page": "Home", "href": url_for("frontend.index")},
+        {"page": "Attic", "href": url_for("frontend.attic")},
         {"page": "Visualisations", "href": url_for("visualisations.index")},
         {"page": slug.replace("-", " ").capitalize()},
     ]

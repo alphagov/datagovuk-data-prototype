@@ -30,7 +30,7 @@ def register_blueprints(app):
     from application.visualisations.views import visualisations_bp
 
     app.register_blueprint(frontend)
-    app.register_blueprint(visualisations_bp)
+    app.register_blueprint(visualisations_bp, prefix="/attic")
 
 
 def register_extensions(app):
