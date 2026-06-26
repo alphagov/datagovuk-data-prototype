@@ -13,31 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-06-25T0729.csv](results/collection-check-2026-06-25T0729.csv)
+Using test results file: [results/collection-check-2026-06-26T0735.csv](results/collection-check-2026-06-26T0735.csv)
 
 
 
-## Childhood vaccinations
-Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
-
-
-
-## Early years health indicators
-Page: [https://data.gov.uk/collections/early-years/early-years-health-indicators](https://data.gov.uk/collections/early-years/early-years-health-indicators)
+## Child height and weight
+Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
 
 
             
 
 The following links were not reachable during test
 
-- [https://fingertips.phe.org.uk/profiles](https://fingertips.phe.org.uk/profiles)
+- [https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health](https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health)
 
 
 
