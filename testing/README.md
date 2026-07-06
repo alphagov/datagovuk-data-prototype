@@ -13,19 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-07-05T0720.csv](results/collection-check-2026-07-05T0720.csv)
+Using test results file: [results/collection-check-2026-07-06T0753.csv](results/collection-check-2026-07-06T0753.csv)
 
 
-
-## Childhood vaccinations
-Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
-
-
-
+No issues reported
