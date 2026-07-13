@@ -1,0 +1,24 @@
+services:
+  solr:
+    image: ghcr.io/alphagov/solr:2.10
+    ports:
+      - "8983:8983"
+    volumes:
+      - solr_data:/opt/solr/server/solr/ckan/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8983/solr/ckan/admin/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  solr-seed-data:
+    build: ./seed-data
+    environment:
+      SOLR_URL: "http://solr:8983/solr/ckan"
+    depends_on:
+      solr:
+        condition: service_healthy
+    command: ["python", "load_seed_data.py"]
+
+volumes:
+  solr_data:
