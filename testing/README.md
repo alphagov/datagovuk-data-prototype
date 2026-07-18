@@ -13,7 +13,45 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-07-17T0700.csv](results/collection-check-2026-07-17T0700.csv)
+Using test results file: [results/collection-check-2026-07-18T0651.csv](results/collection-check-2026-07-18T0651.csv)
 
 
-No issues reported
+
+## Child height and weight
+Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health](https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health)
+
+
+
+## Childhood vaccinations
+Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
+
+- [https://www.publichealth.hscni.net/publications/annual-immunisation-and-vaccine-preventable-diseases-reports](https://www.publichealth.hscni.net/publications/annual-immunisation-and-vaccine-preventable-diseases-reports)
+
+
+
+## Deprivation
+Page: [https://data.gov.uk/collections/people/deprivation](https://data.gov.uk/collections/people/deprivation)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://www.nisra.gov.uk/statistics/people-and-communities/deprivation](https://www.nisra.gov.uk/statistics/people-and-communities/deprivation)
+
+
+
