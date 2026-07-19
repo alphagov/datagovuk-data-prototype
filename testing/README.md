@@ -13,19 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-07-18T0651.csv](results/collection-check-2026-07-18T0651.csv)
-
-
-
-## Child height and weight
-Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health](https://www.publichealth.hscni.net/publications?keys=statistical+profile+of+children%27s+health)
+Using test results file: [results/collection-check-2026-07-19T0704.csv](results/collection-check-2026-07-19T0704.csv)
 
 
 
@@ -39,19 +27,17 @@ The following links were not reachable during test
 
 - [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
 
-- [https://www.publichealth.hscni.net/publications/annual-immunisation-and-vaccine-preventable-diseases-reports](https://www.publichealth.hscni.net/publications/annual-immunisation-and-vaccine-preventable-diseases-reports)
 
 
-
-## Deprivation
-Page: [https://data.gov.uk/collections/people/deprivation](https://data.gov.uk/collections/people/deprivation)
+## Early years health indicators
+Page: [https://data.gov.uk/collections/early-years/early-years-health-indicators](https://data.gov.uk/collections/early-years/early-years-health-indicators)
 
 
             
 
 The following links were not reachable during test
 
-- [https://www.nisra.gov.uk/statistics/people-and-communities/deprivation](https://www.nisra.gov.uk/statistics/people-and-communities/deprivation)
+- [https://phw.nhs.wales/](https://phw.nhs.wales/)
 
 
 
