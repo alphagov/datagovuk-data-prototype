@@ -13,7 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-07-21T0704.csv](results/collection-check-2026-07-21T0704.csv)
+Using test results file: [results/collection-check-2026-07-22T0705.csv](results/collection-check-2026-07-22T0705.csv)
 
 
 No issues reported
