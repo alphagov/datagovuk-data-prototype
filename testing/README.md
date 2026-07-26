@@ -13,7 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-07-25T0657.csv](results/collection-check-2026-07-25T0657.csv)
+Using test results file: [results/collection-check-2026-07-26T0706.csv](results/collection-check-2026-07-26T0706.csv)
+
+
+
+## Child height and weight
+Page: [https://data.gov.uk/collections/early-years/child-height-and-weight](https://data.gov.uk/collections/early-years/child-height-and-weight)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://publichealthscotland.scot/publications/show-all-releases?id=20566](https://publichealthscotland.scot/publications/show-all-releases?id=20566)
 
 
 
@@ -24,6 +36,8 @@ Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https
             
 
 The following links were not reachable during test
+
+- [https://publichealthscotland.scot/publications/show-all-releases?id=20562](https://publichealthscotland.scot/publications/show-all-releases?id=20562)
 
 - [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
 
