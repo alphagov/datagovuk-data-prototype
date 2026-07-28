@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<p><small>{{ collection_title }}</small></p>
+<h1>{{ title }}</h1>
+
+{{ body_html }}
+
+{% if meta.websites or meta.api or meta.dataset %}
+<hr />
+<ul>
+  {% for w in meta.websites or [] %}
+    <li>Website: <a href="{{ w['url'] }}">{{ w['link-text'] or w['url'] }}</a></li>
+  {% endfor %}
+  {% if meta.api %}
+    <li>API: <a href="{{ meta.api['url'] }}">{{ meta.api['link-text'] or meta.api['url'] }}</a></li>
+  {% endif %}
+  {% if meta.dataset %}
+    <li>Dataset: <a href="{{ meta.dataset['url'] }}">{{ meta.dataset['link-text'] or meta.dataset['url'] }}</a></li>
+  {% endif %}
+</ul>
+{% endif %}
+
+{% if meta['page-last-updated'] %}
+<p><small>Last updated: {{ meta['page-last-updated'] }}</small></p>
+{% endif %}
+{% endblock %}

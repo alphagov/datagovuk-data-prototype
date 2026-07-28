@@ -26,11 +26,17 @@ def register_errorhandlers(app):
 
 
 def register_blueprints(app):
+    from application.api.views import api_bp
+    from application.collections.views import collections_bp
     from application.frontend.views import frontend
+    from application.search.views import search_bp
     from application.visualisations.views import visualisations_bp
 
     app.register_blueprint(frontend)
     app.register_blueprint(visualisations_bp, prefix="/attic")
+    app.register_blueprint(search_bp, url_prefix="/search")
+    app.register_blueprint(collections_bp)
+    app.register_blueprint(api_bp, url_prefix="/api")
 
 
 def register_extensions(app):
@@ -38,4 +44,6 @@ def register_extensions(app):
 
 
 def register_commands(app):
-    pass
+    from application.commands import sandbox_cli
+
+    app.cli.add_command(sandbox_cli)

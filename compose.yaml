@@ -1,4 +1,17 @@
 services:
+  opensearch:
+    image: opensearchproject/opensearch:3.5.0
+    environment:
+      - discovery.type=single-node
+      - DISABLE_SECURITY_PLUGIN=true
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - opensearch_data:/usr/share/opensearch/data
+    networks:
+      - local-network
+
   web:
     build:
       context: .
@@ -7,12 +20,19 @@ services:
       - "5050:5050"
     env_file:
       - .flaskenv
+    environment:
+      - OPENSEARCH_URL=http://opensearch:9200
     volumes:
       - .:/app
       - /app/.venv
+    depends_on:
+      - opensearch
     networks:
       - local-network
 
 networks:
   local-network:
     driver: bridge
+
+volumes:
+  opensearch_data:

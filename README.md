@@ -75,6 +75,7 @@ App available at: `http://localhost:5050`
 | Command | What it does |
 |---|---|
 | `just serve` | Build the image and start the full stack |
+| `just index` | (Re)create the OpenSearch index and load the markdown from `collections/` (stack must be running) |
 | `just shell` | Open a bash shell in the running web container |
 | `just add <package>` | Add a Python package via `uv add` (stack must be running) |
 
@@ -159,6 +160,41 @@ The view at `/visualisations/<slug>` auto-discovers every `data/*.json` file. Ad
 4. Push to `main` — the deploy pipeline does the rest
 
 See [`data/README.md`](data/README.md) for the full field reference and examples.
+
+---
+
+## Search experimentation
+
+Basic keyword earch over the dataset/topic markdown, using OpenSearch. No database yet, the
+index is built directly from the markdown in `collections/<collection>/<topic>.md`.
+
+Once the app is running (`just serve`), build the index:
+
+```bash
+just index
+```
+
+This creates/recreates the `topics` index and loads the `collections/**/*.md` files, and creates facets from
+the file's frontmatter (`collection`, plus `has_api` / `has_dataset` from the `api` / `dataset`
+fields). The search UI is at `http://localhost:5050/search`, which is a search input, a facet sidebar whose 
+counts come from OpenSearch aggregations, and a results list. Clicking a facet filters the results
+
+Re-run `just index` whenever the markdown in `collections/` changes.
+
+### Notes
+
+Queries use a single OpenSearch [`query_string`](https://docs.opensearch.org/latest/query-dsl/full-text/query-string/)
+over `title` (boosted) and `body`, with `AND` as the default operator. There is no wildcard syntax, 
+an empty query matches everything, so `/search/keyword` opens on the full list of topics with all
+the facet counts, and the facets can be browsed without searching first.
+
+The JSON endpoint takes the same `q`, `collection` and `available_as` parameters as the UI, and
+`?raw` returns the OpenSearch response untouched:
+
+```bash
+curl "http://localhost:5050/api/keyword-search?q=flooding&available_as=api"
+curl "http://localhost:5050/api/keyword-search?q=flooding&raw"
+```
 
 ---
 

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<h1>Search</h1>
+<p>Approaches being experimented with for search</p>
+
+<ul>
+  <li><a href="{{ url_for('search.keyword') }}">Keyword search</a> - full text search of collections with facets, using OpenSearch.</li>
+</ul>
+{% endblock %}

@@ -1,1 +1,22 @@
-/* Nothing needed but it's here if needed */
+/* Search results: narrow facet sidebar, wider results.
+   Pico's .grid is equal-width only, so we define our own columns. */
+.search-layout {
+  display: grid;
+  grid-template-columns: minmax(11rem, 14rem) 1fr;
+  gap: var(--pico-block-spacing-horizontal);
+  align-items: start;
+}
+
+/* Keep the results readable and centred within their column. */
+.search-layout > section {
+  max-width: 45rem;
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* Stack on small screens. */
+@media (max-width: 768px) {
+  .search-layout {
+    grid-template-columns: 1fr;
+  }
+}
