@@ -195,16 +195,14 @@ Tailored per corpus, so every facet shown is one the documents actually populate
 - **Collections** - Collection, Available as (website / API / dataset)
 - **Data directory** - Organisation, Format, Licence
 
-"Available as" is collections-only: the `has_api` / `has_dataset` / `has_website` flags come off the
-markdown frontmatter. Datasets have no equivalent - the synthesised versions were an artefact of the
-old merged index, and `has_api` there just meant "API" was in `formats`, which the Format facet
-already says.
+"Available as" is collections-only: the `has_api` / `has_dataset` / `has_website` flags come from the
+markdown frontmatter. Datasets have no equivalent.
 
 `status` is indexed on collections but not faceted: every topic is `for-publication` today, so it
 would render one link filtering nothing.
 
-The Licence facet only lists datasets that record a licence - 575 of the 752 have no licence field
-at all and aren't reachable from the sidebar.
+The Licence facet only lists datasets that record a licence, 575 of the 752 have no licence field
+at all.
 
 Both pages show 20 results per page.
 
@@ -216,7 +214,7 @@ An empty query matches everything, so both pages open on the full corpus with al
 and the facets can be browsed without searching first.
 
 The JSON endpoints return the **OpenSearch response untouched** - hits, aggregations, `_score` and
-all - rather than a bespoke envelope, so what you see is the real query result:
+all - rather than any server side post processing, so clients see is the real query result:
 
 ```bash
 curl "http://localhost:5050/api/collections/keyword?q=flooding&available_as=api"
@@ -228,9 +226,7 @@ They take the same params as their UI (`q`, that index's facet params, and `avai
 collections), plus `size` and `from` for paging.
 
 **Results are always in relevance order.** There is no `sort` param: nothing in the UI offered a
-sort control, and the only ordering worth having - most recently updated - is the same date on 61
-of the 80 topics, so it would sort about 19 documents and then tie. `page_last_updated` is still
-indexed, so adding sorting later is a code change, not a reindex.
+sort control, sort can be added later if needed.
 
 ---
 
