@@ -1,0 +1,68 @@
+name: Index
+
+# Rebuilds the OpenSearch index by running the *existing* app image as a one-off
+# Fargate task with a command override. no separate image or ECR repo. The
+# indexed content is baked into the image and index has to be rebuilt on each deploy.
+#
+# Runs automatically after a successful deploy (called from deploy.yml) and can
+# be triggered by hand from the Actions tab.
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      task-definition:
+        description: Task definition ARN to run. Defaults to the family's latest revision.
+        required: false
+        type: string
+
+permissions:
+  id-token: write   # required for OIDC token exchange
+  contents: read
+
+env:
+  AWS_REGION: eu-west-2
+  ECS_CLUSTER: test
+  CONTAINER_NAME: app
+  TASK_FAMILY: datagovuk-sandbox
+
+jobs:
+  index:
+    name: Rebuild search index
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::525320085442:role/github-actions-deployer-test
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Run index task
+        env:
+          # deploy.yml passes the exact revision it just rolled out; a manual run
+          # falls back to the latest ACTIVE revision
+          TASK_DEF: ${{ inputs.task-definition || 'datagovuk-sandbox' }}
+        run: |
+          set -euo pipefail
+
+          TASK_ARN=$(aws ecs run-task \
+            --cluster "$ECS_CLUSTER" \
+            --task-definition "$TASK_DEF" \
+            --launch-type FARGATE \
+            --network-configuration "awsvpcConfiguration={subnets=[${{ vars.PRIVATE_SUBNET_IDS }}],securityGroups=[${{ vars.ECS_SECURITY_GROUP_ID }}],assignPublicIp=DISABLED}" \
+            --overrides '{"containerOverrides":[{"name":"'"$CONTAINER_NAME"'","command":["flask","--app","application.wsgi:app","sbox","index"]}]}' \
+            --started-by "gha-index-${{ github.sha }}" \
+            --query 'tasks[0].taskArn' --output text)
+
+          echo "Started $TASK_ARN"
+          aws ecs wait tasks-stopped --cluster "$ECS_CLUSTER" --tasks "$TASK_ARN"
+
+          # printed before the exit-code check so a task that never started
+          # (image pull, task role, ENI failures) is readable in the log.
+          aws ecs describe-tasks --cluster "$ECS_CLUSTER" --tasks "$TASK_ARN" \
+            --query 'tasks[0].{stoppedReason:stoppedReason,exitCode:containers[0].exitCode,reason:containers[0].reason}'
+
+          CODE=$(aws ecs describe-tasks --cluster "$ECS_CLUSTER" --tasks "$TASK_ARN" \
+            --query 'tasks[0].containers[0].exitCode' --output text)
+          test "$CODE" = "0"   # fail the job if the index command errored

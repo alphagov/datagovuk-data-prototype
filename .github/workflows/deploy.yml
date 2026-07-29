@@ -7,7 +7,7 @@ on:
 
 # Deploy only runs after CI passes on the same commit.
 # Branch protection should require the 'CI / lint' and 'CI / test'
-# status checks before merge — this workflow then fires automatically.
+# status checks before merge - this workflow then fires automatically.
 
 permissions:
   id-token: write   # required for OIDC token exchange
@@ -25,6 +25,9 @@ jobs:
   deploy:
     name: Build and deploy
     runs-on: ubuntu-latest
+
+    outputs:
+      task-def-arn: ${{ steps.deploy-ecs.outputs.task-definition-arn }}
 
     steps:
       - name: Checkout
@@ -76,9 +79,20 @@ jobs:
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy to ECS
+        id: deploy-ecs
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
+
+  # The search index is rebuilt on every deploy from docs baked into image 
+  index:
+    needs: deploy
+    uses: ./.github/workflows/index.yml
+    with:
+      task-definition: ${{ needs.deploy.outputs.task-def-arn }}
+    permissions:
+      id-token: write
+      contents: read
