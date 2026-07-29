@@ -83,6 +83,8 @@ environment,weather,https://climate-themetoffice.hub.arcgis.com,Met Office Clima
 government,contracts-finder,https://www.contractsfinder.service.gov.uk/Search,Contracts finder,website
 government,council-tax-statistics,https://www.gov.uk/government/collections/council-tax-statistics,Council Tax statistics,website
 government,election-results,https://electionresults.parliament.uk/,Election results,website
+government,legislation,https://www.legislation.gov.uk/,Search legislation,website
+government,legislation,https://legislation.github.io/data-documentation/api/overview.html,Legislation API documentation,api
 government,local-government-finance,https://www.gov.uk/government/statistical-data-sets/live-tables-on-local-government-finance,Local government finance,website
 government,local-government-finance,https://www.gov.uk/government/collections/local-government-finance-statistics-england,Local government finance statistics – England (compendium),dataset
 government,service-assessment-reports,https://www.gov.uk/service-standard-reports,Service assessment reports,website
