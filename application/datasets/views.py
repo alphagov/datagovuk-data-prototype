@@ -2,7 +2,6 @@ from flask import (
     Blueprint,
     abort,
     current_app,
-    redirect,
     render_template,
     url_for,
 )
@@ -14,7 +13,7 @@ from application.search.query import DATASETS
 datasets_bp = Blueprint("datasets", __name__, template_folder="../templates")
 
 
- # Note we maintain the url with id and slug as in current directory
+# Note we maintain the url with id and slug as in current directory
 @datasets_bp.route("/dataset/<dataset_id>/<slug>")
 def dataset(dataset_id, slug):
     """Render a single CKAN dataset from the search index which is the

@@ -165,7 +165,7 @@ def http_url(value):
 
 
 # keys of validated_data_dict excluded for now , values
-# rendered explicitly elsewhere on the page, or empty on every one of the 752 sample 
+# rendered explicitly elsewhere on the page, or empty on every one of the 752 sample
 # docs.
 METADATA_SKIP = frozenset(
     {
