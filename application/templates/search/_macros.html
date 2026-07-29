@@ -1,0 +1,64 @@
+{% macro facet_sidebar(search_index, facets, filters, selected_available_as) %}
+<aside>
+  {% for f in search_index.facets %}
+    {% set buckets = facets.get(f.field, []) %}
+    {% if buckets %}
+      <h4>{{ f.heading }}</h4>
+      <ul>
+        {% for b in buckets %}
+          <li>
+            <a href="{{ _facet_url(f.param, b.key) }}"
+               {% if b.key in filters.get(f.param, []) %}aria-current="true"{% endif %}>{{ b.label or b.key }} ({{ b.count }})</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+
+  {# collections only: the has_* flags come off the markdown frontmatter #}
+  {% if search_index.available_as %}
+    <h4>Available as</h4>
+    <ul>
+      {% for key, field, label in [('website', 'has_website', 'Website'),
+                                   ('api', 'has_api', 'API'),
+                                   ('dataset', 'has_dataset', 'Dataset')] %}
+        {% set count = facets.get(field, []) | selectattr('key', 'equalto', 'true')
+                         | map(attribute='count') | first | default(0) %}
+        <li>
+          <a href="{{ _facet_url('available_as', key) }}"
+             {% if key in selected_available_as %}aria-current="true"{% endif %}>{{ label }} ({{ count }})</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <a href="{{ _clear_url() }}">clear filters</a>
+</aside>
+{% endmacro %}
+
+
+{% macro result_count(searched, total, from_, results, query) %}
+  {% if searched %}
+    <p>
+      {% if total %}
+        Showing {{ from_ + 1 }}&ndash;{{ from_ + results | length }} of
+      {% endif %}
+      {{ total }} results{% if query %} for "{{ query }}"{% endif %}
+    </p>
+    <p><small>Same search as JSON: <a href="{{ _api_url() }}"><code>GET {{ _api_url() }}</code></a></small></p>
+  {% endif %}
+{% endmacro %}
+
+
+{% macro pager(total, from_, page_size) %}
+  {% if total > page_size %}
+    <nav>
+      {% if from_ > 0 %}
+        <a href="{{ _page_url([from_ - page_size, 0] | max) }}">&larr; Previous</a>
+      {% endif %}
+      {% if from_ + page_size < total %}
+        <a href="{{ _page_url(from_ + page_size) }}">Next &rarr;</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+{% endmacro %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "search/_macros.html" as search %}
+{% block title %}Search the data directory{% endblock %}
+{% block content %}
+<h1>Search the data directory</h1>
+<p>Full text search of the published datasets, using OpenSearch.</p>
+
+<form action="{{ url_for('search.directory') }}" method="get" role="search">
+  <input type="search" name="q" value="{{ query }}" placeholder="Enter a search term">
+</form>
+
+<div class="{% if results %}search-layout{% endif %}">
+  {% if results %}
+    {{ search.facet_sidebar(search_index, facets, filters, filtered_available_as) }}
+  {% endif %}
+
+  <section>
+    {{ search.result_count(searched, total, from_, results, query) }}
+
+    {% for doc in results %}
+      <article>
+        <h3>
+          <a href="{{ url_for('datasets.dataset', dataset_id=doc.dataset_id, slug=doc.slug) }}">{{ doc.title }}</a>
+        </h3>
+        {% if doc.highlight.body %}
+          <p>{{ doc.highlight.body[0] | safe }}</p>
+        {% endif %}
+        <p>
+          {{ doc.organisation_title or doc.organisation }}
+          {%- if doc.resource_count %} - {{ doc.resource_count }} resource{{ 's' if doc.resource_count != 1 }}{% endif %}
+          {%- if doc.licence_title %} - {{ doc.licence_title }}{% endif %}
+        </p>
+        {% for f in doc.formats or [] %}<mark>{{ f }}</mark>{% endfor %}
+      </article>
+    {% else %}
+      {% if searched %}
+        <p>No results found</p>
+        {% if facets %}<a href="{{ _clear_url() }}">clear filters</a>{% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {{ search.pager(total, from_, page_size) }}
+  </section>
+</div>
+{% endblock %}
