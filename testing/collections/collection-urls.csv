@@ -146,6 +146,9 @@ transport,maritime-and-shipping,https://www.gov.uk/government/collections/mariti
 transport,mot-results,https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain,MOT test results,website
 transport,national-travel-survey,https://www.gov.uk/government/collections/national-travel-survey-statistics,National Travel Survey,website
 transport,national-travel-survey,https://maps.dft.gov.uk/transport-statistics-finder/index.html,Transport Statistics Finder,dataset
+transport,public-transport-stations-and-stops,https://beta-naptan.dft.gov.uk,NaPTAN and related data,website
+transport,public-transport-stations-and-stops,https://naptan.api.dft.gov.uk/swagger/index.html,API documentation,api
+transport,public-transport-stations-and-stops,https://www.gov.uk/government/publications/national-public-transport-access-node-schema,Guides and schemas,dataset
 transport,real-time-and-historic-train-information,https://www.nationalrail.co.uk/developers/darwin-data-feeds,Train information APIs,api
 transport,road-conditions,https://www.gov.uk/government/collections/road-network-size-and-condition,Road condition statistics,website
 transport,road-safety,https://www.gov.uk/government/statistical-data-sets/road-safety-open-data,Road safety,website
