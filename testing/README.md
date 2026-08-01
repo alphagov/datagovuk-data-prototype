@@ -13,7 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-07-31T0712.csv](results/collection-check-2026-07-31T0712.csv)
+Using test results file: [results/collection-check-2026-08-01T0702.csv](results/collection-check-2026-08-01T0702.csv)
 
 
 
@@ -26,6 +26,18 @@ Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https
 The following links were not reachable during test
 
 - [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
+
+
+
+## Early years health indicators
+Page: [https://data.gov.uk/collections/early-years/early-years-health-indicators](https://data.gov.uk/collections/early-years/early-years-health-indicators)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://phw.nhs.wales/](https://phw.nhs.wales/)
 
 
 
