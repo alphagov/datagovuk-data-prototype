@@ -20,7 +20,7 @@ def detail(topic, dataset_name):
     body_html = Markup(md_lib.markdown(doc.content, extensions=["extra"]))
 
     return render_template(
-        "collections/detail.html",
+        "topic.html",
         topic=topic,
         collection_title=topic.replace("-", " ").capitalize(),
         title=doc.metadata.get("title", dataset_name),

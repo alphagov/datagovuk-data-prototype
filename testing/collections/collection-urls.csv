@@ -83,6 +83,8 @@ environment,weather,https://climate-themetoffice.hub.arcgis.com,Met Office Clima
 government,contracts-finder,https://www.contractsfinder.service.gov.uk/Search,Contracts finder,website
 government,council-tax-statistics,https://www.gov.uk/government/collections/council-tax-statistics,Council Tax statistics,website
 government,election-results,https://electionresults.parliament.uk/,Election results,website
+government,legislation,https://www.legislation.gov.uk/,Search legislation,website
+government,legislation,https://legislation.github.io/data-documentation/api/overview.html,Legislation API documentation,api
 government,local-government-finance,https://www.gov.uk/government/statistical-data-sets/live-tables-on-local-government-finance,Local government finance,website
 government,local-government-finance,https://www.gov.uk/government/collections/local-government-finance-statistics-england,Local government finance statistics – England (compendium),dataset
 government,service-assessment-reports,https://www.gov.uk/service-standard-reports,Service assessment reports,website
@@ -144,6 +146,9 @@ transport,maritime-and-shipping,https://www.gov.uk/government/collections/mariti
 transport,mot-results,https://www.gov.uk/government/statistical-data-sets/mot-testing-data-for-great-britain,MOT test results,website
 transport,national-travel-survey,https://www.gov.uk/government/collections/national-travel-survey-statistics,National Travel Survey,website
 transport,national-travel-survey,https://maps.dft.gov.uk/transport-statistics-finder/index.html,Transport Statistics Finder,dataset
+transport,public-transport-stations-and-stops,https://beta-naptan.dft.gov.uk,NaPTAN and related data,website
+transport,public-transport-stations-and-stops,https://naptan.api.dft.gov.uk/swagger/index.html,API documentation,api
+transport,public-transport-stations-and-stops,https://www.gov.uk/government/publications/national-public-transport-access-node-schema,Guides and schemas,dataset
 transport,real-time-and-historic-train-information,https://www.nationalrail.co.uk/developers/darwin-data-feeds,Train information APIs,api
 transport,road-conditions,https://www.gov.uk/government/collections/road-network-size-and-condition,Road condition statistics,website
 transport,road-safety,https://www.gov.uk/government/statistical-data-sets/road-safety-open-data,Road safety,website

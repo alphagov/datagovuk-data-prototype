@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "search/_macros.html" as search %}
+{% block title %}Search collections{% endblock %}
+{% block content %}
+<h1>Search collections</h1>
+<p>Full text search of the curated collection topics, using OpenSearch.</p>
+
+<form action="{{ url_for('search.collections') }}" method="get" role="search">
+  <input type="search" name="q" value="{{ query }}" placeholder="Enter a search term">
+</form>
+
+<div class="{% if results %}search-layout{% endif %}">
+  {% if results %}
+    {{ search.facet_sidebar(search_index, facets, filters, filtered_available_as) }}
+  {% endif %}
+
+  <section>
+    {{ search.result_count(searched, total, from_, results, query) }}
+
+    {% for doc in results %}
+      <article>
+        <h3>
+          <a href="{{ url_for('collections.detail', topic=doc.collection, dataset_name=doc.slug) }}">{{ doc.title }}</a>
+        </h3>
+        {% if doc.highlight.body %}
+          <p>{{ doc.highlight.body[0] | safe }}</p>
+        {% endif %}
+        <p>Topic{% if doc.collection_title %} in {{ doc.collection_title }}{% endif %}</p>
+        {% if doc.has_api %}<mark>API</mark>{% endif %}
+        {% if doc.has_dataset %}<mark>dataset</mark>{% endif %}
+        {% if doc.has_website %}<mark>website</mark>{% endif %}
+      </article>
+    {% else %}
+      {% if searched %}
+        <p>No results found</p>
+        {% if facets %}<a href="{{ _clear_url() }}">clear filters</a>{% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {{ search.pager(total, from_, page_size) }}
+  </section>
+</div>
+{% endblock %}

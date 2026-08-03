@@ -28,6 +28,7 @@ def register_errorhandlers(app):
 def register_blueprints(app):
     from application.api.views import api_bp
     from application.collections.views import collections_bp
+    from application.datasets.views import datasets_bp
     from application.frontend.views import frontend
     from application.search.views import search_bp
     from application.visualisations.views import visualisations_bp
@@ -36,6 +37,7 @@ def register_blueprints(app):
     app.register_blueprint(visualisations_bp, prefix="/attic")
     app.register_blueprint(search_bp, url_prefix="/search")
     app.register_blueprint(collections_bp)
+    app.register_blueprint(datasets_bp)
     app.register_blueprint(api_bp, url_prefix="/api")
 
 

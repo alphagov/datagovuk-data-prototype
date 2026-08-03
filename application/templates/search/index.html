@@ -2,9 +2,43 @@
 {% block title %}Search{% endblock %}
 {% block content %}
 <h1>Search</h1>
-<p>Approaches being experimented with for search</p>
+<p>Example keyword only search using Opensearch. There are two indexes, one for our collection topics and one for directory datasets. no merging is done yet</p>
+<p>This is to facilitate testing ways in which the two sets of indexed docs can be combined, prioritised, presented etc</p>
 
+<hr />
+
+{% macro examples(queries) %}
 <ul>
-  <li><a href="{{ url_for('search.keyword') }}">Keyword search</a> - full text search of collections with facets, using OpenSearch.</li>
+  {% for url, note in queries %}
+    <li><a href="{{ url }}"><code>GET {{ url }}</code></a>{% if note %} - {{ note }}{% endif %}</li>
+  {% endfor %}
 </ul>
+{% endmacro %}
+
+<h2>Collections</h2>
+<p><a href="{{ url_for('search.collections') }}">Search collections</a> - the curated
+  collection topics, faceted by collection and by what each topic is available as.</p>
+
+<p>Example API queries - click to run one. Each returns the OpenSearch response passed
+  straight through.</p>
+{{ examples([
+  (url_for('api.collections_keyword', q='flooding'), ''),
+  (url_for('api.collections_keyword', collection='environment'), ''),
+  (url_for('api.collections_keyword', available_as='api', size=0), 'facet counts only, no hits'),
+]) }}
+
+<h2>Data directory</h2>
+<p><a href="{{ url_for('search.directory') }}">Search the data directory</a> - the
+  published datasets, faceted by organisation, format and licence.</p>
+
+<p><em>Note:</em> the dataset pages presented are a truncated version of current dataset pages.</p>
+<p>There is more that can be surfaced but in the examples here only the validated data dict is used</p>
+
+<p>Example API queries - click to run one.</p>
+{{ examples([
+  (url_for('api.directory_keyword', q='marine'), ''),
+  (url_for('api.directory_keyword', organisation='durham-county-council'), ''),
+  (url_for('api.directory_keyword', format='CSV', licence='uk-ogl'), ''),
+  (url_for('api.directory_keyword', size=20, **{'from': 20}), 'second page'),
+]) }}
 {% endblock %}
