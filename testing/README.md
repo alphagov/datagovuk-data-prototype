@@ -13,19 +13,31 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-08-07T0634.csv](results/collection-check-2026-08-07T0634.csv)
+Using test results file: [results/collection-check-2026-08-08T0625.csv](results/collection-check-2026-08-08T0625.csv)
 
 
 
-## Education statistics
-Page: [https://data.gov.uk/collections/early-years/education-statistics](https://data.gov.uk/collections/early-years/education-statistics)
+## Childhood vaccinations
+Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
 
 
             
 
 The following links were not reachable during test
 
-- [https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=](https://www.gov.wales/statistics-and-research?keywords=&field_policy_areas%5B35%5D=35&field_stats_research_type%5B1%5D=1&All=All&published_after=&published_before=)
+- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
+
+
+
+## Legislation
+Page: [https://data.gov.uk/collections/government/legislation](https://data.gov.uk/collections/government/legislation)
+
+
+            
+
+The following links were not reachable during test
+
+- [https://legislation.github.io/data-documentation/api/overview.html](https://legislation.github.io/data-documentation/api/overview.html)
 
 
 
