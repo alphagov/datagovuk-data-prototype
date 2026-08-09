@@ -13,31 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-08-08T0625.csv](results/collection-check-2026-08-08T0625.csv)
+Using test results file: [results/collection-check-2026-08-09T0625.csv](results/collection-check-2026-08-09T0625.csv)
 
 
 
-## Childhood vaccinations
-Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
-
-
-
-## Legislation
-Page: [https://data.gov.uk/collections/government/legislation](https://data.gov.uk/collections/government/legislation)
+## Addresses
+Page: [https://data.gov.uk/collections/land-and-property/addresses](https://data.gov.uk/collections/land-and-property/addresses)
 
 
             
 
 The following links were not reachable during test
 
-- [https://legislation.github.io/data-documentation/api/overview.html](https://legislation.github.io/data-documentation/api/overview.html)
+- [https://www.ordnancesurvey.co.uk/products/os-gb-address](https://www.ordnancesurvey.co.uk/products/os-gb-address)
 
 
 
