@@ -24,9 +24,9 @@ import os
 import subprocess
 import sys
 import tempfile
+from pathlib import Path
 
 import boto3
-from pathlib import Path
 
 # Setup logging
 logging.basicConfig(
