@@ -33,10 +33,6 @@ venv
 # Not needed in the runtime image
 testing/
 tests/
-# Note: restore-ckan-db.py in scripts/ IS needed for the restore Docker image
-# Only exclude other scripts, not the restore tool
-scripts/*
-!scripts/restore-ckan-db.py
 
 # Database dumps / backups
 db_backup/
