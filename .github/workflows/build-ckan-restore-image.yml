@@ -27,7 +27,8 @@ jobs:
 
       - name: Build image
         run: |
-          docker build \
+          docker buildx build \
+            --load \
             -f docker/Dockerfile.restore \
             -t ckan-db-restore:${{ github.sha }} \
             -t ckan-db-restore:latest \
