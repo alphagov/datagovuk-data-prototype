@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+
+# Install PostgreSQL client tools
+RUN apt-get update && apt-get install -y \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --no-cache-dir boto3
+
+# Copy restore script
+COPY scripts/restore-ckan-db.py /usr/local/bin/restore-ckan-db.py
+RUN chmod +x /usr/local/bin/restore-ckan-db.py
+
+# Set the entry point
+ENTRYPOINT ["python3", "/usr/local/bin/restore-ckan-db.py"]

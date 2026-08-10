@@ -1,0 +1,51 @@
+name: Build CKAN Restore Docker Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/restore-ckan-db.py"
+      - "docker/Dockerfile.restore"
+      - ".github/workflows/build-ckan-restore-image.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build image
+        run: |
+          docker build \
+            -f docker/Dockerfile.restore \
+            -t ckan-db-restore:${{ github.sha }} \
+            -t ckan-db-restore:latest \
+            .
+
+      - name: Save image to file
+        run: |
+          docker save ckan-db-restore:latest -o ckan-db-restore-${{ github.sha }}.tar
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ckan-db-restore-image
+          path: ckan-db-restore-${{ github.sha }}.tar
+          retention-days: 7
+
+      - name: Show image info
+        run: |
+          docker image ls | grep ckan-db-restore
+          echo "Image saved as artifact: ckan-db-restore-${{ github.sha }}.tar"
+          echo "Ready to be pushed to Integration ECR"
