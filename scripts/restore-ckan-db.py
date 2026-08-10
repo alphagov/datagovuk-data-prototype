@@ -15,19 +15,18 @@ Requires:
 - Python 3.9+
 """
 
+import argparse
+import gzip
+import io
+import json
+import logging
+import os
 import subprocess
 import sys
-import os
-import gzip
-import json
-import shutil
 import tempfile
-import logging
-import io
-from pathlib import Path
-from datetime import datetime
+
 import boto3
-import argparse
+from pathlib import Path
 
 # Setup logging
 logging.basicConfig(
