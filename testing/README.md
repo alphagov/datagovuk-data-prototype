@@ -13,35 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-08-17T0622.csv](results/collection-check-2026-08-17T0622.csv)
+Using test results file: [results/collection-check-2026-08-18T0617.csv](results/collection-check-2026-08-18T0617.csv)
 
 
-
-## Childhood vaccinations
-Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
-
-
-
-## Planning data
-Page: [https://data.gov.uk/collections/land-and-property/planning-data](https://data.gov.uk/collections/land-and-property/planning-data)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://www.planning.data.gov.uk](https://www.planning.data.gov.uk)
-
-- [https://www.planning.data.gov.uk/docs](https://www.planning.data.gov.uk/docs)
-
-- [https://www.planning.data.gov.uk/dataset/](https://www.planning.data.gov.uk/dataset/)
-
-
-
+No issues reported
