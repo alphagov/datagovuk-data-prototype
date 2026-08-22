@@ -13,33 +13,7 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-08-21T0620.csv](results/collection-check-2026-08-21T0620.csv)
+Using test results file: [results/collection-check-2026-08-22T0615.csv](results/collection-check-2026-08-22T0615.csv)
 
 
-
-## Get charity information
-Page: [https://data.gov.uk/collections/business-and-economy/get-charity-information](https://data.gov.uk/collections/business-and-economy/get-charity-information)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://register-of-charities.charitycommission.gov.uk/en/charity-search](https://register-of-charities.charitycommission.gov.uk/en/charity-search)
-
-- [https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api](https://register-of-charities.charitycommission.gov.uk/en/documentation-on-the-api)
-
-
-
-## Childhood vaccinations
-Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
-
-
-
+No issues reported
