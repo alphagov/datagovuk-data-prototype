@@ -13,31 +13,19 @@ The tests visit the rendered html version of each collection page on data.gov.uk
                     
 ## Report
 
-Using test results file: [results/collection-check-2026-08-23T0616.csv](results/collection-check-2026-08-23T0616.csv)
+Using test results file: [results/collection-check-2026-08-24T0624.csv](results/collection-check-2026-08-24T0624.csv)
 
 
 
-## Childhood vaccinations
-Page: [https://data.gov.uk/collections/early-years/childhood-vaccinations](https://data.gov.uk/collections/early-years/childhood-vaccinations)
-
-
-            
-
-The following links were not reachable during test
-
-- [https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/](https://phw.nhs.wales/knowledge-article/cover-national-childhood-immunisation-uptake-data/)
-
-
-
-## Main rivers
-Page: [https://data.gov.uk/collections/environment/main-rivers](https://data.gov.uk/collections/environment/main-rivers)
+## Storm overflows
+Page: [https://data.gov.uk/collections/environment/storm-overflows](https://data.gov.uk/collections/environment/storm-overflows)
 
 
             
 
 The following links were not reachable during test
 
-- [https://environment.data.gov.uk/dataset/25dde009-ba7d-40de-8380-c5c3bb32ccdc](https://environment.data.gov.uk/dataset/25dde009-ba7d-40de-8380-c5c3bb32ccdc)
+- [https://environment.data.gov.uk/dataset/21e15f12-0df8-4bfc-b763-45226c16a8ac](https://environment.data.gov.uk/dataset/21e15f12-0df8-4bfc-b763-45226c16a8ac)
 
 
 
